@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +19,7 @@
   <title>Thrine</title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
@@ -25,9 +28,9 @@
   <!-- datepicker -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
 </head>
 
 <body>
@@ -94,7 +97,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>
@@ -120,7 +123,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>
@@ -454,7 +457,7 @@
       </div>
       <div class="col-md-7 mx-auto px-0">
         <div class="img-box b2">
-          <img src="images/about-img.png" alt="" />
+          <img src="{% static 'images/about-img.png' %}" alt="" />
         </div>
       </div>
       <div class="col-md-9 mx-auto px-0">
@@ -492,7 +495,7 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <img src="images/s1.png" alt="" />
+            <img src="{% static 'images/s1.png' %}" alt="" />
             <a href="#">
               Cardiology
             </a>
@@ -500,7 +503,7 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <img src="images/s2.png" alt="" />
+            <img src="{% static 'images/s2.png' %}" alt="" />
             <a href="#">
               Diagnosis
             </a>
@@ -511,7 +514,7 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <img src="images/s3.png" alt="" />
+            <img src="{% static 'images/s3.png' %}" alt="" />
             <a href="#">
               Surgery
             </a>
@@ -519,7 +522,7 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <img src="images/s4.png" alt="" />
+            <img src="{% static 'images/s4.png' %}" alt="" />
             <a href="#">
               First Aid
             </a>
@@ -527,7 +530,7 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <img src="images/s5.png" alt="" />
+            <img src="{% static 'images/s5.png' %}" alt="" />
             <a href="#">
               Therapy
             </a>

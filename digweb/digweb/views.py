@@ -7,3 +7,12 @@ def mainpage(request):
 
 def zakaria(request):
     return HttpResponse("Hello, zakaria!")
+
+def about_page(request):
+    return render(request, "openVeiw/about.html")
+
+def appointment_page(request):
+    return render(request, "openVeiw/appointment.html")
+
+def service_page(request):
+    return render(request, "openVeiw/service.html")
