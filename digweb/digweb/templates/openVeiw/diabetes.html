@@ -17,7 +17,7 @@
   <title>Thrine</title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
@@ -39,7 +39,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'main'%}">
             <h3>
-              AI TEC
+              Thrine
             </h3>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,14 +51,14 @@
               <li class="nav-item ">
                 <a class="nav-link" href="{% url 'main'%}">Home </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'about_page'%}"> About <span class="sr-only">(current)</span> </a>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page'%}"> About </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'service_page'%}"> Services </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'appointment_page'%}"> Appointment </a>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'appointment_page'%}"> Appointment <span class="sr-only">(current)</span> </a>
               </li>
             </ul>
             <form class="form-inline ">
@@ -73,35 +73,68 @@
     <!-- end header section -->
   </div>
 
-  <!-- about section -->
-  <section class="about_section layout_padding">
+  <!-- book section -->
+
+  <section class="book_section layout_padding">
     <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          <span class="design_dot"></span>
-          About Our Team
-        </h2>
-      </div>
-      <div class="col-md-7 mx-auto px-0">
-        <div class="img-box b2">
-          <img src="{% static 'images/about-img.png' %}" alt="" />
-        </div>
-      </div>
-      <div class="col-md-9 mx-auto px-0">
-        <div class="detail-box">
-          <p>
-            Esse sed doloribus error ad laborum dolorem nobis? Cum, culpa? Distinctio natus excepturi fugit eveniet quasi animi ab obcaecati laudantium sit, ratione recusandae accusamus, voluptatum iste placeat. Esse, eos cumque.
-            Culpa nesciunt quia qui possimus eveniet dolore a debitis consectetur quod. Eligendi recusandae placeat soluta
-          </p>
-          <a href="">
-            Read More
-          </a>
+      <div class="row">
+        <div class="col">
+          <form>
+            <h4>
+              <span class="design_dot"></span>
+              Predict diabetes
+            </h4>
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label for="inputPatientName">Patient Name </label>
+                <input type="text" class="form-control" id="inputPatientName" placeholder="">
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputDoctorName">Doctor's Name</label>
+                <select name="" class="form-control wide" id="inputDoctorName">
+                  <option value="Normal distribution ">Doctor Name 1</option>
+                  <option value="Normal distribution ">Doctor Name 2 </option>
+                  <option value="Normal distribution ">Doctor Name 3 </option>
+                </select>
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputDepartmentName">Department's Name</label>
+                <select name="" class="form-control wide" id="inputDepartmentName">
+                  <option value="Normal distribution ">Cardiology </option>
+                  <option value="Normal distribution ">Surgery </option>
+                  <option value="Normal distribution ">First Aid </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label for="inputPhone">Phone Number</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="">
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputSymptoms">Symptoms</label>
+                <input type="text" class="form-control" id="inputSymptoms" placeholder="">
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputDate">Choose Date </label>
+                <div class="input-group date" id="inputDate" data-date-format="mm-dd-yyyy">
+                  <input type="text" class="form-control" readonly>
+                  <span class="input-group-addon date_icon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-box">
+              <button type="submit" class="btn ">Submit Now</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end about section -->
+  <!-- end book section -->
 
   <!-- map section -->
 

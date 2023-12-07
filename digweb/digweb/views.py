@@ -16,3 +16,6 @@ def appointment_page(request):
 
 def service_page(request):
     return render(request, "openVeiw/service.html")
+
+def diabetes_page(request):
+    return render(request, "openVeiw/diabetes.html")

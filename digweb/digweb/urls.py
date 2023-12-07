@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 ##import views
+app_name = "digital"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('zakaria/', views.zakaria, name="zakaria"),
     path('', views.mainpage, name="main"),
     path('about/', views.about_page, name="about_page"),
     path('appointment/', views.appointment_page, name="appointment_page"),
-    path('service/', views.service_page, name="service_page")
+    path('service/', views.service_page, name="service_page"),
+    path('diabetes/', views.diabetes_page, name="diabetes_page")
 ]
