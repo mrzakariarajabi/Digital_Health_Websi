@@ -788,4 +788,131 @@ a:focus {
 }
 
 /* end footer section*/
-/*# sourceMappingURL=style.css.map */
+
+/* diabetes section*/
+.diabetes_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/diabetes.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/diabetes.jpg);
+  background-size: cover;
+  color: #000000;
+}
+
+.diabetes_section form {
+  padding: 35px 45px;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+}
+
+.diabetes_section form h4 {
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.diabetes_section form h4 .design_dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #4bc5b8;
+  margin-right: 5px;
+}
+
+.diabetes_section form label {
+  color: #000000;
+}
+
+.diabetes_section form .form-control {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  background-color: #deece9;
+  height: 45px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  color: #000000;
+}
+
+.diabetes_section form .form-control::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.diabetes_section form .form-control:-ms-input-placeholder {
+  color: #000000;
+}
+
+.diabetes_section form .form-control::-ms-input-placeholder {
+  color: #000000;
+}
+
+.diabetes_section form .form-control::placeholder {
+  color: #000000;
+}
+
+.diabetes_section form #inputDate {
+  color: #56bca4;
+}
+
+.diabetes_section form #inputDate input {
+  color: #000000;
+}
+
+.diabetes_section form button.btn {
+  background-color: #2b99b7;
+  color: #ffffff;
+  padding: 10px 45px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.diabetes_section .date_icon {
+  right: 10px;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #56bca4;
+}
+
+.diabetes_section .nice-select {
+  color: #000000 !important;
+}
+
+.diabetes_section .nice-select:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  border: none;
+  width: auto;
+  height: auto;
+  -webkit-transform: none;
+          transform: none;
+  top: 7px;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.diabetes_section .nice-select.open:after {
+  content: "\f106";
+}
+/*end diabetes section*/
