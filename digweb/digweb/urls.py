@@ -16,6 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+##
+from django.conf.urls import handler404
+handler404 = 'digweb.views.error_404_handler'
+##
 from . import views
 ##import views
 app_name = "digital"
@@ -26,5 +30,12 @@ urlpatterns = [
     path('about/', views.about_page, name="about_page"),
     path('appointment/', views.appointment_page, name="appointment_page"),
     path('service/', views.service_page, name="service_page"),
-    path('diabetes/', views.diabetes_page, name="diabetes_page")
+    path('diabetes/', views.diabetes_page, name="diabetes_page"),
+    path('stroke/', views.stroke_page, name="stroke_page"),
+    path('ckd/', views.ckd_page, name="ckd_page"),
+    path('underconstruction/', views.under_page, name="under_page")
+    ##path('404/', views.page404_page, name="page404_page")
+    ##
+    
+    ##
 ]

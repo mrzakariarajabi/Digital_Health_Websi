@@ -19,3 +19,15 @@ def service_page(request):
 
 def diabetes_page(request):
     return render(request, "openVeiw/diabetes.html")
+
+def stroke_page(request):
+    return render(request, "openVeiw/stroke.html")
+
+def ckd_page(request):
+    return render(request, "openVeiw/ckd.html")
+
+def under_page(request):
+    return render(request, "error/UnderConstruction.html")
+
+def error_404_handler(request, exception):
+    return render(request, "error/page404.html")
