@@ -1,7 +1,19 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
-
+  <style>
+    .section_discribe p {
+      font-family: sans-serif;
+      color: rgb(2, 2, 61);
+      font-size: 2.75em;
+      font-style: oblique;
+      float: center;
+      line-height: 3.5rem;
+      text-align: center;
+    }
+    
+    </style>
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -14,7 +26,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="{% static 'images/s4.png' %}" type="image/x-icon">
 
-  <title>Thrine</title>
+  <title>AI TEC</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
@@ -27,8 +39,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
   <!-- Custom styles for this template -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/function_style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <!-- java script function for calculate risk  -->
+  <script src="{% static 'js/function_disease.js' %}"></script>
 </head>
 
 <body class="sub_page">
@@ -73,7 +88,7 @@
     <!-- end header section -->
   </div>
 
-  <!-- book section -->
+  <!-- diabetes section -->
 
   <section class="diabetes_section layout_padding">
     <div class="container">
@@ -82,51 +97,67 @@
           <form>
             <h4>
               <span class="design_dot"></span>
-              Predict diabetes
+              Diabetes Predictor
             </h4>
             <div class="form-row ">
               <div class="form-group col-lg-4">
-                <label for="inputPatientName">Patient Name </label>
-                <input type="text" class="form-control" id="inputPatientName" placeholder="">
+                <label for="inputPatientAge">Age </label>
+                <input type="number" class="form-control" id="inputDiabetesAge" name="DiabetesAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
               </div>
+
               <div class="form-group col-lg-4">
-                <label for="inputDoctorName">Doctor's Name</label>
-                <select name="" class="form-control wide" id="inputDoctorName">
-                  <option value="Normal distribution ">Doctor Name 1</option>
-                  <option value="Normal distribution ">Doctor Name 2 </option>
-                  <option value="Normal distribution ">Doctor Name 3 </option>
+                <label for="inputPatientGender">Gender</label>
+                <select name="" class="form-control wide" id="inputPatientGender">
+                  <option value=1>Male</option>
+                  <option value=2>Female </option>
                 </select>
               </div>
+
               <div class="form-group col-lg-4">
-                <label for="inputDepartmentName">Department's Name</label>
-                <select name="" class="form-control wide" id="inputDepartmentName">
-                  <option value="Normal distribution ">Cardiology </option>
-                  <option value="Normal distribution ">Surgery </option>
-                  <option value="Normal distribution ">First Aid </option>
+                <label for="inputPatientBMI">BMI</label>
+                <select name="" class="form-control wide" id="inputPatientBMI">
+                  <option value=1>less than 25 </option>
+                  <option value=2>Between 25 to 30 </option>
+                  <option value=3>more than 30 </option>
                 </select>
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
-                <label for="inputPhone">Phone Number</label>
-                <input type="text" class="form-control" id="inputPhone" placeholder="">
+                <label for="inputPatientWaist">Waist</label>
+                <input type="number" class="form-control" id="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(150, parseInt(this.value)));">
               </div>
+
               <div class="form-group col-lg-4">
-                <label for="inputSymptoms">Symptoms</label>
-                <input type="text" class="form-control" id="inputSymptoms" placeholder="">
+                <br>
+                <br>
+                <input type="checkbox" id="inputPatientDrugHistory" name="checkbox1" value="1" class="control__indicator" >
+                <label for="inputPationtDrugHistory" class="check-box">History of use Drug</label>
               </div>
+              
               <div class="form-group col-lg-4">
-                <label for="inputDate">Choose Date </label>
-                <div class="input-group date" id="inputDate" data-date-format="mm-dd-yyyy">
-                  <input type="text" class="form-control" readonly>
-                  <span class="input-group-addon date_icon">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                  </span>
+                <br>
+                <br>
+                <input type="checkbox" id="inputPationtPhysicalActivity" name="checkbox2" value="1" class="control__indicator">
+                <label for="inputPationtPhysicalActivity">Is your patient physically active for more than 30 minutes every day? </label>
                 </div>
+            </div>
+
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                
+                <input type="checkbox" id="inputPationtGlucose" name="checkbox3" value="1" class="control__indicator">
+                <label for="inputPationtGlucose">History of family glucose</label>
+              </div>
+              <div class="form-group col-lg-4">
+                
+                <input type="checkbox" id="inputPationtVegetables" name="checkbox4" value="1" class="control__indicator">
+                <label for="inputPationtGlucose">Daily consumption of vegetables, fruits, or berries</label>
               </div>
             </div>
+
             <div class="btn-box">
-              <button type="submit" class="btn">Calculate Now</button>
+              <button type="button" class="btn " onclick="diabetes_Results();">Calculate Now</button>
             </div>
           </form>
         </div>
@@ -134,17 +165,14 @@
     </div>
   </section>
 
-  <!-- end book section -->
-
-  <!-- map section -->
-
-  <section class="map_section">
-    <div class="map">
-      <div id="googleMap"></div>
-    </div>
-  </section>
-
-  <!-- end map section -->
+  <!-- end diabetes section -->
+<!--  discription section -->
+<section class="section_discribe">
+  <div class="discribe">
+    <p class ="text_result" id="discribe_text"> </p>
+  </div>
+</section>
+<!-- end discription section -->
 
   <!-- info section -->
   <section class="info_section layout_padding">
@@ -174,12 +202,11 @@
         <div class="col-md-3">
           <div class="info_course">
             <h5>
-              Thrine Hospital
+              AI TEC
             </h5>
             <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humou
+              AI TEC one subset of Electrooptics Industry IRAN (SAPA) which works with the purpose of developing artificial intelligence
+
             </p>
           </div>
         </div>
@@ -191,13 +218,13 @@
             </h5>
             <div class="info_contact">
               <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i> Location
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Location : Isfahan, Isfahan Province, Ostad Falaturi st, Pasargad Shopping mall 
               </a>
               <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i> demo@gmail.com
+                <i class="fa fa-envelope" aria-hidden="true"></i> A.I.Tec.IRAN@gmail.com
               </a>
               <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i> Call : +01 1234567890
+                <i class="fa fa-phone" aria-hidden="true"></i> Call : +31 34597406
               </a>
             </div>
             <form action="">
@@ -219,25 +246,12 @@
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        <a href="https://html.design/">AI TEC Company</a>
       </p>
     </div>
   </footer>
   <!-- footer section -->
 
-  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
-  <!-- datepicker -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-  <!-- custom js -->
-  <script src="{% static 'js/custom.js' %}"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
 </body>
 
 </html>
