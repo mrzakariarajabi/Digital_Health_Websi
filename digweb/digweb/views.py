@@ -26,6 +26,9 @@ def stroke_page(request):
 def ckd_page(request):
     return render(request, "openVeiw/ckd.html")
 
+def cvd_page(request):
+    return render(request, "openVeiw/cvd.html")
+
 def under_page(request):
     return render(request, "error/UnderConstruction.html")
 

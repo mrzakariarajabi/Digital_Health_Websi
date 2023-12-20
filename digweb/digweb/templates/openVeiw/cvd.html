@@ -88,16 +88,16 @@
     <!-- end header section -->
   </div>
 
-  <!-- ckd section -->
+  <!-- cvd section -->
 
-  <section class="ckd_section layout_padding">
+  <section class="cvd_section layout_padding">
     <div class="container">
       <div class="row">
         <div class="col">
           <form>
             <h4>
               <span class="design_dot"></span>
-              Chronic Kidney Disease Predictor
+              Cardio Vascular Disease Predictor
             </h4>
             <div class="form-row ">
               <div class="form-group col-lg-4">
@@ -114,63 +114,42 @@
               </div>
 
               <div class="form-group col-lg-4">
-                <br>
-                <br>
-                <input type="checkbox" id="inputPatientAnemia" name="checkbox1" value=1 class="control__indicator">
-                <label for="inputPationtAnemia" class="check-box">Do you have Anemia ?</label>
+                <label for="inputPatientSBP">Sistolic Blood Pressure (mm/hg) </label>
+                <input type="number" class="form-control" id="inputPatientSBP" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
-                <br>
-                <br>
-                <input type="checkbox" id="inputPatientDrugHistory" name="checkbox1" value="1" class="control__indicator">
-                <label for="inputPationtDrugHistory" class="check-box">Do you have History of use Drug ?</label>
+                <label for="inputPatientWaist">Waist (cm) </label>
+                <input type="number" class="form-control" id="inputPatientWaist" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
-                <br>
-                <br>
-                <input type="checkbox" id="inputPatientHypertension" name="checkbox1" value="1" class="control__indicator">
-                <label for="inputPationtHypertension" class="check-box">Do you have Hypertension ?</label>
+                <label for="inputPatientHip">Hip (cm) </label>
+                <input type="number" class="form-control" id="inputPatientHip" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
               
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <input type="checkbox" id="inputPationtHistoryCVD" name="checkbox2" value="1" class="control__indicator">
-                <label for="inputPationtHistoryCVD">Do you have History of cardiovascular disease ? </label>
+                <input type="checkbox" id="inputPationtSmoke" name="checkbox2" value="1" class="control__indicator">
+                <label for="inputPationtSmoke">Do you Smoke ? </label>
                 </div>
             </div>
 
             <div class="form-row ">
               <div class="form-group col-lg-4">
+                <br>
                 
-                <input type="checkbox" id="inputPationtHistoryCHF" name="checkbox3" value="1" class="control__indicator">
-                <label for="inputPationtHistoryCHF">Do you have history of Congestive heart failure ?</label>
-              </div>
-              <div class="form-group col-lg-4">
-                <input type="checkbox" id="inputPationtPVD" name="checkbox4" value="1" class="control__indicator">
-                <label for="inputPationtPVD">Do you have Peripheral vascular disease ?</label>
-              </div>
-              <div class="form-group col-lg-4">
-                <input type="checkbox" id="inputPationtProteinuria" name="checkbox4" value="1" class="control__indicator">
-                <label for="inputPationtProteinuria">Do you have Proteinuria ?</label>
-              </div>
-            </div>
-
-            <div class="form-row ">
-              <div class="form-group col-lg-4">
-                
-                <input type="checkbox" id="inputPationtDM" name="checkbox3" value="1" class="control__indicator">
-                <label for="inputPationtDM">Do you have Diabetes mellitus ?</label>
+                <input type="checkbox" id="inputPationtDiabetes" name="checkbox3" value="1" class="control__indicator">
+                <label for="inputPationtDiabetes">Do you have Diabetes ?</label>
+                <br>
               </div>
               
             </div>
-            
 
             <div class="btn-box">
-              <button type="button" class="btn " onclick="ckd_Results();">Calculate Now</button>
+              <button type="button" class="btn " onclick="cvd_Results();">Calculate Now</button>
             </div>
           </form>
         </div>
@@ -178,7 +157,7 @@
     </div>
   </section>
 
-  <!-- end ckd section -->
+  <!-- end cvd section -->
 
   <!--  discription section -->
   <section class="section_discribe">
@@ -208,8 +187,8 @@
       <div class="col-md-4 mx-auto">
         <div class="box">
           <img src="{% static 'images/s1.png' %}" alt="" />
-          <a href="{% url 'cvd_page'%}">
-            Cardiovascular disease
+          <a href="{% url 'ckd_page'%}">
+            Chronic Kidney Disease
           </a>
         </div>
       </div>

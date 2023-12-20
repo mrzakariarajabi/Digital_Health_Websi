@@ -106,7 +106,7 @@
               </div>
 
               <div class="form-group col-lg-4">
-                <label for="inputPatientSBPHistory">Sistolic Blood pressure </label>
+                <label for="inputPatientSBPHistory">Sistolic Blood pressure (mm/hg)</label>
                 <input type="number" class="form-control" id="inputPatientSBPHistory" name="PationtAge" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(200, parseInt(this.value)));">
               
               </div>
@@ -165,14 +165,7 @@
               </div>
             </div>
             <div class="form-row ">
-              <div class="form-group col-lg-4">
-                <label for="inputPationtinteraction">Is there an interaction between blood pressure and the drug used ?</label>
-                <select name="" class="form-control wide" id="inputPationtinteraction">
-                  <option value=0>No</option>
-                  <option value=1>Yes </option>
-                </select>
-                
-              </div>
+              
               <div class="form-group col-lg-4">
                 <br>
                 <label for="years">year risk ?</label>
@@ -232,7 +225,7 @@
       <div class="col-md-4 mx-auto">
         <div class="box">
           <img src="{% static 'images/s1.png' %}" alt="" />
-          <a href="{% url 'under_page'%}">
+          <a href="{% url 'cvd_page'%}">
             Cardiovascular disease
           </a>
         </div>
@@ -258,7 +251,7 @@
     </div>
 
     <div class="btn-box">
-      <a href="">
+      <a href="{% url 'service_page'%}">
         View All
       </a>
     </div>

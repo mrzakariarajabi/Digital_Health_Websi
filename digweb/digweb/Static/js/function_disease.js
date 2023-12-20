@@ -19,9 +19,15 @@ function diabetes_Results()
       Gender_value = Gender.value;
     //console.log("Gender" + Gender_value);
 // BMI
-    var PatientBMI = document.getElementById('inputPatientBMI'),
-      BMI_value = PatientBMI.value;
-    //console.log("BMI" + BMI_value);
+    var Height = document.getElementById('inputPatientHeight'),
+      Height_value = Height.value;
+      var Weight = document.getElementById('inputDiabetesWeight'),
+      Weight_value = Weight.value;
+      BMI_value = Weight_value /(Math.pow((Height_value/100),2));
+
+    //var PatientBMI = document.getElementById('inputPatientBMI'),
+      //BMI_value = PatientBMI.value;
+    console.log("BMI = " + BMI_value);
 //Waist
     var PatientWaist = document.getElementById('inputPatientWaist'),
     Waist_value = PatientWaist.value;
@@ -57,11 +63,11 @@ function diabetes_Results()
             Age_point = 3;
         }
     //BMI
-    if (BMI_value == 1){
+    if (BMI_value <=25 ){
             BMI_risk =0
             BMI_point = 0
         }
-    else if  (BMI_value == 2){
+    else if  (BMI_value > 25 && BMI_value <= 30){
             BMI_risk =  0.015
             BMI_point = 1
         }
@@ -155,8 +161,17 @@ function stroke_Results()
   var PationtLVH = document.getElementById("inputPationtLVH").checked;
     //console.log( PationtLVH);
   //inputPationtinteraction
-  var Pationtinteraction = document.getElementById('inputPationtinteraction'),
-    PI_value = Pationtinteraction.value;
+  PI_value =false;
+  if (DrugHistory){
+    if (SBPHistory_value >= 160){
+      PI_value = true;
+    }
+    else{
+      PI_value =false;
+    }
+  }
+  //var Pationtinteraction = document.getElementById('inputPationtinteraction'),
+    //PI_value = Pationtinteraction.value;
   
     //console.log( PI_value);
 //year
@@ -261,3 +276,95 @@ function ckd_Results()
 }
 
 // end of CKD function
+
+// CVD function 
+function cvd_Results()
+{
+  //inputPatientAge
+  //inputPatientGender 
+  //inputPatientSBP
+  //inputPatientWaist
+  //inputPatientHip
+  //inputPationtSmoke
+  //inputPationtDiabetes
+
+  // Age 
+  var Age = document.getElementById('inputPatientAge'),
+    Age_value = Age.value;
+  // gender
+  var Gender = document.getElementById('inputPatientGender'),
+    Gender_value = Gender.value;
+    //console.log("Gender" + Gender_value);
+  // SBP
+  var PationtSBP = document.getElementById('inputPatientSBP'),
+    SBP_value = PationtSBP.value;
+  // Waist
+  var Waist = document.getElementById('inputPatientWaist'),
+    Waist_value = Waist.value;
+  // Hip
+  var Hip = document.getElementById('inputPatientHip'),
+    Hip_value = Hip.value;
+  // inputPationtSmoke
+  var Smoke = document.getElementById("inputPationtSmoke").checked;
+          //console.log( HistoryCVD); 
+    // inputPationtDiabetes
+  var Diabetes = document.getElementById("inputPationtDiabetes").checked;
+          //console.log( HistoryCHF); 
+    
+    //SBP Value
+  if (SBP_value>=120 && SBP_value<=139){
+    sbpcat2=1;sbpcat3=0;sbpcat4=0;
+    }
+  else if (SBP_value>=140 && SBP_value<=159){
+    sbpcat2=0;sbpcat3=1;sbpcat4=0;
+    }
+  else if (SBP_value>=160){
+    sbpcat2=0;sbpcat3=0;sbpcat4=1;
+    }
+  else {
+    sbpcat2=0;sbpcat3=0;sbpcat4=0;
+    }
+    // Gender
+    WHR_Value = Waist_value/Hip_value;
+      // WHR
+    if (Gender_value == 1){
+    
+         if (WHR_Value>=0.85 && SBP_value<0.90){
+            WHR_Value2=1;WHR_Value3=0;WHR_Value4=0;
+          }
+        else if (WHR_Value>=0.90 && WHR_Value<0.95){
+            WHR_Value2=0;WHR_Value3=1;WHR_Value4=0;
+          }
+        else if (WHR_Value>=0.95){
+            WHR_Value2=0;WHR_Value3=0;WHR_Value4=1;
+          }
+        else {//% i.e., WHR<0.85
+            WHR_Value2=0;WHR_Value3=0;WHR_Value4=0;
+        }
+    }
+    else{
+        if (WHR_Value>=1 && SBP_value<1.05){
+          WHR_Value2=1;WHR_Value3=0;WHR_Value4=0;
+        }
+        else if (WHR_Value>=1.05 && WHR_Value<1.10){
+          WHR_Value2=0;WHR_Value3=1;WHR_Value4=0;
+        }
+        else if (WHR_Value>=1.10){
+          WHR_Value2=0;WHR_Value3=0;WHR_Value4=1;
+        }
+        else{ //% i.e., WHR<1
+           WHR_Value2=0;WHR_Value3=0;WHR_Value4=0;
+          }
+
+    }
+      func_res=0.03823*(Age_value-50.69)+0.73001*(Diabetes-0.07)+0.47524*(sbpcat2-0.3534)+ 0.79045*(sbpcat3-0.1268)+1.13051*(sbpcat4-0.0730)+(-0.32309)*(Gender_value-0.51)+0.26560*(Smoke-0.22)+ 0.10478*(WHR_Value2-0.1291)+0.17986*(WHR_Value3-0.1414)+0.29440*(WHR_Value4-0.2384);
+
+
+
+    exp_value=Math.exp(func_res);
+    Probability=1-Math.pow(0.96303975,exp_value);
+    console.log( Probability*100);
+    document.getElementById("discribe_text").innerHTML = "your 10 year Risk equal by " + (Probability*100).toFixed(2)+" Percent.";
+}
+
+// end of CVD function

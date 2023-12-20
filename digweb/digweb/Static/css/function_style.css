@@ -137,7 +137,7 @@
   }
   
   .diabetes_section form button.btn {
-    background-color: #da5327;
+    background-color: #35806e;
     color: #ffffff;
     padding: 10px 45px;
     border-radius: 5px;
@@ -327,7 +327,7 @@
 }
 
 .stroke_section form button.btn {
-  background-color: #da5327;
+  background-color: #35806e;
   color: #ffffff;
   padding: 10px 45px;
   border-radius: 5px;
@@ -518,7 +518,7 @@
 }
 
 .ckd_section form button.btn {
-  background-color: #da5327;
+  background-color: #35806e;
   color: #ffffff;
   padding: 10px 45px;
   border-radius: 5px;
@@ -568,4 +568,194 @@
 }
 
 /*end ckd section */
+
+/*cvd section*/
+/* cvd page check box */
+
+.cvd_section .control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.cvd_section .control input {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
+}
+.cvd_section .control__indicator {
+  position: relative;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.cvd_section .control:hover input ~ .control__indicator,
+.cvd_section .control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+.cvd_section .control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+.cvd_section .control:hover input:not([disabled]):checked ~ .control__indicator,
+.cvd_section .control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.cvd_section .control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.cvd_section .control__indicator:after {
+  content: '';
+  position: relative;
+  display: none;
+}
+.cvd_section .control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.cvd_section .control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.cvd_section .control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+/* end of cvd page check box */
+
+.cvd_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/cvd.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/cvd.jpg);
+  background-size: cover;
+  color: #000000;
+}
+
+.cvd_section form {
+  padding: 35px 45px;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+}
+
+.cvd_section form h4 {
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cvd_section form h4 .design_dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #4bc5b8;
+  margin-right: 5px;
+}
+
+.cvd_section form label {
+  color: #000000;
+}
+
+.cvd_section form .form-control {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  background-color: #deece9;
+  height: 45px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  color: #000000;
+}
+
+.cvd_section form .form-control::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.cvd_section form .form-control:-ms-input-placeholder {
+  color: #000000;
+}
+
+.cvd_section form .form-control::-ms-input-placeholder {
+  color: #000000;
+}
+
+.cvd_section form .form-control::placeholder {
+  color: #000000;
+}
+
+.cvd_section form #inputDate {
+  color: #56bca4;
+}
+
+.cvd_section form #inputDate input {
+  color: #000000;
+}
+
+.cvd_section form button.btn {
+  background-color: #35806e;
+  color: #ffffff;
+  padding: 10px 45px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.cvd_section .date_icon {
+  right: 10px;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #56bca4;
+}
+
+.cvd_section .nice-select {
+  color: #000000 !important;
+}
+
+.cvd_section .nice-select:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  border: none;
+  width: auto;
+  height: auto;
+  -webkit-transform: none;
+          transform: none;
+  top: 7px;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.cvd_section .nice-select.open:after {
+  content: "\f106";
+}
+
+/*end cvd section */
 

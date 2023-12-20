@@ -33,6 +33,7 @@ urlpatterns = [
     path('diabetes/', views.diabetes_page, name="diabetes_page"),
     path('stroke/', views.stroke_page, name="stroke_page"),
     path('ckd/', views.ckd_page, name="ckd_page"),
+    path('cvd/', views.cvd_page, name="cvd_page"),
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
     ##
