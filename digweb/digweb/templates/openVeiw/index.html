@@ -14,7 +14,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="{% static 'images/s4.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'images/aitec.jpg' %}" type="image/x-icon">
 
   <title>AI Tec</title>
 
@@ -136,6 +136,31 @@
                   <div class="detail-box">
                     <div>
                       <h1>
+                        Cardiovascular Disease
+                      </h1>
+                      <p>
+                        Cardiovascular disease refers to health problems related to the heart and blood vessels. This includes conditions like heart attacks and strokes, often caused by factors such as unhealthy lifestyle, high blood pressure, and genetics. Taking steps like eating well, staying active, and managing risk factors helps prevent cardiovascular disease. If someone already has it, medications and surgeries can be used to manage the condition.                      </p>
+                      <a href="{% url 'cvd_page'%}">
+                        Calculate my risk
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/cvd_start.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
                         Chronic Kidney Disease
                       </h1>
                       <p>
@@ -160,6 +185,7 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         </ol>
       </div>
     </section>
@@ -465,7 +491,7 @@
           <p>
             Our commitment extends to developing AI-powered diagnostics that can assist healthcare professionals in early detection and intervention, contributing to more effective disease management and improved patient outcomes.
           </p>
-          <a href="">
+          <a href="{% url 'about_page'%}">
             Read More
           </a>
         </div>
@@ -485,7 +511,7 @@
           Our Services
         </h2>
         <p>
-          It is a long established fact that a reader will be distracted
+          You can use other services, click on icon
         </p>
       </div>
       <div class="row">
