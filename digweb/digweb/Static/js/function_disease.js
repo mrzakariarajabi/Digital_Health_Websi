@@ -1,5 +1,5 @@
 // diabetes function 
-function diabetes_Results()
+function diabetes_Results(page_number)
 {
   //inputDiabetesAge
   //inputPatientGender
@@ -9,7 +9,13 @@ function diabetes_Results()
   //inputPationtPhysicalActivity
   //inputPationtGlucose
   //inputPationtVegetables
+  var referringPage = document.referrer;
 
+  if (referringPage) {
+    console.log("The user was referred from: " + referringPage);
+  } else {
+    console.log("The user was not referred by another page.");
+  }
 // Age 
     var Age = document.getElementById('inputDiabetesAge'),
       Age_value = Age.value;
@@ -113,14 +119,21 @@ Risk_total = -5.658 + risk+ 0.714*DrugHistory+ 2.263*Glucose+ 0.268*PhysicalActi
 point_total = point+ 2*DrugHistory + 5*Glucose + 2*PhysicalActivity+ 1*Vegetables;
 final_Risk = Math.exp(Risk_total)/ (1+Math.exp(Risk_total));
 console.log( "final_Risk = " + final_Risk);
-document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (final_Risk*100).toFixed(2)+" Percent.";
+if (page_number==1){
+  document.getElementById("discribe_text").innerHTML = "ریسک 5 ساله شما برابر است با " + (final_Risk*100).toFixed(2)+" درصد";
+
+}
+else{
+  document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (final_Risk*100).toFixed(2)+" Percent.";
+
+}
 
 
 }
 // end of diabetes function
 
 // stroke function
-function stroke_Results()
+function stroke_Results(page_number)
 {
   //inputPatientAge
   //inputPatientGender
@@ -191,7 +204,12 @@ var year = document.getElementById('year'),
         f_men = Math.exp(exp_men);
         risk_men = 1-Math.pow(year_man[year_value-1], f_men);
         console.log("men = "+risk_men*100);
-        document.getElementById("discribe_text").innerHTML = "your " + year_value + " year Risk equal by " + (risk_men*100).toFixed(2)+" Percent.";
+        if (page_number==1){
+          document.getElementById("discribe_text").innerHTML = "ریسک " + year_value + " ساله شما برابر است با " + (risk_men*100).toFixed(2)+" درصد";
+        }
+        else{
+          document.getElementById("discribe_text").innerHTML = "your " + year_value + " year Risk equal by " + (risk_men*100).toFixed(2)+" Percent.";
+        }
 
       }
       else{
@@ -208,7 +226,7 @@ var year = document.getElementById('year'),
 // end of stroke function
 
 // CKD function 
-function ckd_Results()
+function ckd_Results(page_number)
 {
   //inputPatientAge
   //inputPatientGender 
@@ -272,13 +290,18 @@ function ckd_Results()
     exp_value=Math.exp(-func_res);
     Probability=1/(1+exp_value);
     console.log( Probability*100);
-    document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (Probability*100).toFixed(2)+" Percent.";
+    if (page_number==1){
+      document.getElementById("discribe_text").innerHTML = "ریسک 5 ساله شما برابر است با  " + (Probability*100).toFixed(2)+" درصد";
+    }
+    else{
+      document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (Probability*100).toFixed(2)+" Percent.";
+    }
 }
 
 // end of CKD function
 
 // CVD function 
-function cvd_Results()
+function cvd_Results(page_number)
 {
   //inputPatientAge
   //inputPatientGender 
@@ -287,6 +310,10 @@ function cvd_Results()
   //inputPatientHip
   //inputPationtSmoke
   //inputPationtDiabetes
+if (page_number==1){
+  console.log(page_number);
+}
+  
 
   // Age 
   var Age = document.getElementById('inputPatientAge'),
@@ -364,7 +391,12 @@ function cvd_Results()
     exp_value=Math.exp(func_res);
     Probability=1-Math.pow(0.96303975,exp_value);
     console.log( Probability*100);
-    document.getElementById("discribe_text").innerHTML = "your 10 year Risk equal by " + (Probability*100).toFixed(2)+" Percent.";
+    if (page_number==1){
+      document.getElementById("discribe_text").innerHTML = "ریسک 10 ساله شما برابر است با  " + (Probability*100).toFixed(2)+" درصد";
+    }
+    else{
+      document.getElementById("discribe_text").innerHTML = "your 10 year Risk equal by " + (Probability*100).toFixed(2)+" Percent.";
+    }
 }
 
 // end of CVD function

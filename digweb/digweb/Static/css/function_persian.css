@@ -1,0 +1,910 @@
+@font-face {
+  font-family: "Vazir-Medium";
+  src: url("../fonts/Vazir-Medium.ttf") format("truetype");
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.layout_padding {
+  padding: 90px 0;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 90px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+
+.heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.heading_container h2 {
+  font-weight: bold;
+  font-family: "Vazir-Medium";
+  position: relative;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heading_container h2 .design_dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #4bc5b8;
+  margin-right: 5px;
+}
+
+.heading_container.heading_center {
+  font-family: "Vazir-Medium";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+/*           persion languge for all section           */
+
+.persian_disease_section h4 .design_dot {
+align-items: right;
+}
+.persian_disease_section .control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  
+}
+.persian_disease_section .control input {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
+  align-items: left;
+}
+.persian_disease_section .control__indicator {
+  position: relative;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.persian_disease_section .control:hover input ~ .control__indicator,
+.persian_disease_section .control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+.persian_disease_section .control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+.persian_disease_section .control:hover input:not([disabled]):checked ~ .control__indicator,
+.persian_disease_section .control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.persian_disease_section .control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.persian_disease_section .control__indicator:after {
+  content: '';
+  position: relative;
+  display: none;
+}
+.persian_disease_section .control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.persian_disease_section .control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.persian_disease_section .control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+
+
+.persian_disease_section form {
+  padding: 35px 45px;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.07);
+  text-align: right;
+  font-family: "Vazir-Medium";
+  
+}
+
+.persian_disease_section form h4 {
+  font-weight: 600;
+  font-family: "Vazir-Medium";
+  align-items: right;
+  text-align: right;
+  font-size: 25px;
+  position: relative;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+            
+}
+
+.persian_disease_section form h4 .design_dot {
+
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #4bc5b8;
+  margin-left: 5px;
+  align-items: right;
+
+}
+
+.persian_disease_section form label {
+  color: #000000;
+  text-align: right;
+  font-family: "Vazir-Medium";
+  font-size: 20px;
+}
+
+.persian_disease_section form .form-control {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  background-color: #deece9;
+  height: 45px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  color: #000000;
+  text-align: right;
+  font-family: "Vazir-Medium";
+  font-size: 20px;
+}
+
+.persian_disease_section form .form-control::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.persian_disease_section form .form-control:-ms-input-placeholder {
+  color: #000000;
+  
+}
+
+.persian_disease_section form .form-control::-ms-input-placeholder {
+  color: #000000;
+}
+
+.persian_disease_section form .form-control::placeholder {
+  color: #000000;
+}
+.persian_disease_section form .form-control::-webkit-inner-spin-button {
+  -webkit-appearance: textfield; /* Safari and Chrome */
+}
+
+
+.persian_disease_section form button.btn {
+  background-color: #35806e;
+  color: #ffffff;
+  padding: 10px 45px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+}
+
+/* diabetes section */
+
+.diabetespr_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/diabetes.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/diabetes.jpg);
+  background-size: cover;
+  color: #000000;
+}
+/*end of diabetes section */
+
+/* stroke section */
+.strokepr_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/stroke.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/stroke.jpg);
+  background-size: cover;
+  color: #000000;
+}
+/* end of stroke section */
+
+/* ckd section */
+.ckdpr_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/ckd.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/ckd.jpg);
+  background-size: cover;
+  color: #000000;
+}
+/* end of ckd section */
+
+/* CVD section */
+.cvdpr_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/cvd.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/cvd.jpg);
+  background-size: cover;
+  color: #000000;
+}
+/* end of cvd section */
+
+/* sub header page */
+/*header section*/
+.hero_area {
+  min-height: 100vh;
+  background-color: #d0e6fc;
+  background-color: #f5f7f8;
+}
+
+.sub_page .hero_area {
+  min-height: auto;
+}
+
+.sub_page .contact_section {
+  margin: 75px 0;
+}
+
+.hero_area.sub_pages {
+  min-height: auto;
+}
+
+.header_section .container-fluid {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.header_section .nav_container {
+  margin: 0 auto;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+  padding: 45px 15px 15px;
+  color: #000000;
+  text-align: center;
+  font-family: "Vazir-Medium";
+  position: relative;
+  text-transform: uppercase;
+}
+
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  background-color: #56bca4;
+  color: #ffffff;
+}
+
+.custom_nav-container .form-inline {
+  padding-top: 30px;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: initial;
+}
+
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.user_option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.custom_nav-container .nav_search-btn {
+  border: none;
+}
+
+.navbar-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.navbar-brand h3 {
+  font-family: "Vazir-Medium";
+  color: #000000;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.navbar-brand span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #56bca4;
+  margin-top: -10px;
+}
+
+.custom_nav-container {
+  z-index: 99999;
+  padding: 0;
+}
+
+.custom_nav-container .navbar-toggler {
+  padding: 0;
+  width: 37px;
+  height: 42px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  outline: none;
+}
+
+.custom_nav-container .navbar-toggler span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background-color: #000000;
+  margin: 7px 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  border-radius: 5px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.custom_nav-container .navbar-toggler span::before, .custom_nav-container .navbar-toggler span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  top: -10px;
+  border-radius: 5px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.custom_nav-container .navbar-toggler span::after {
+  top: 10px;
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before, .custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: 0;
+}
+
+/*end header section*/
+
+/* service section */
+.service_section {
+  position: relative;
+}
+
+.service_section .box {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #edf3fa;
+  margin-top: 45px;
+  padding: 25px;
+  border-radius: 5px;
+  
+}
+
+.service_section .box img {
+  max-width: 225px;
+  width: 100%;
+}
+
+.service_section .box a {
+  font-weight: 600;
+  font-family: "Vazir-Medium";
+  font-size: 24px;
+  margin-top: 15px;
+  color: #000000;
+}
+
+.service_section .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.service_section .btn-box a {
+  font-family: "Vazir-Medium";
+  display: inline-block;
+  padding: 8px 45px;
+  background-color: #56bca4;
+  border: 1px solid #56bca4;
+  color: #ffffff;
+  margin-top: 45px;
+}
+
+.service_section .btn-box a:hover {
+  background-color: transparent;
+  color: #56bca4;
+}
+/* end of service section */
+ 
+/* info section */
+.info_section {
+  font-family: "Vazir-Medium";
+  text-align: right;
+  background-color: #1b443b;
+  color: #ffffff;
+  text-align: right;
+}
+
+.info_section h5 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family:"Vazir-Medium" ;
+  text-align: right;
+}
+
+.info_section .info_menu .navbar-nav .nav-item .nav-link {
+  color: #ffffff;
+}
+
+.info_section .info_news .info_contact {
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.info_section .info_news .info_contact a {
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.info_section .info_news .info_contact a i {
+  margin-right: 5px;
+}
+
+.info_section .info_news form {
+  margin-top: 15px;
+}
+
+.info_section .info_news form input {
+  text-align: right;
+  font-family: "Vazir-Medium";
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  background-color: #e0e0e0;
+}
+
+.info_section .info_news form input::-webkit-input-placeholder {
+  color: #acaeae;
+}
+
+.info_section .info_news form input:-ms-input-placeholder {
+  color: #acaeae;
+}
+
+.info_section .info_news form input::-ms-input-placeholder {
+  color: #acaeae;
+}
+
+.info_section .info_news form input::placeholder {
+  color: #acaeae;
+}
+
+.info_section .info_news form button {
+  font-family: "Vazir-Medium";
+  display: inline-block;
+  padding: 7px 45px;
+  background-color: #56bca4;
+  border: 1px solid #56bca4;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.info_section .info_news form button:hover {
+  background-color: transparent;
+  color: #56bca4;
+}
+/* end of info section */
+
+/* footer section*/
+.footer_section {
+  background-color: #1b443b;
+}
+
+.footer_section p {
+  padding: 20px 0;
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(224, 224, 224, 0.8);
+}
+
+.footer_section p a {
+  color: inherit;
+}
+
+/* end footer section*/
+
+.section_discribe p {
+  font-family: "Vazir-Medium";
+  color: rgb(2, 2, 61);
+  font-size: 2.75em;
+  font-style: oblique;
+  float: center;
+  line-height: 3.5rem;
+  text-align: center;
+}
+/* map section*/ 
+.map_section {
+  height: 345px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding: 0;
+}
+
+.map_section .map {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.map_section .map #googleMap {
+  height: 100%;
+}
+
+/* end map section*/
+
+/* about section */
+.about_section {
+  position: relative;
+  text-align: center;
+  font-family: "Vazir-Medium";
+}
+
+.about_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .img-box {
+  margin-top: 45px;
+}
+
+.about_section .img-box img {
+  width: 100%;
+}
+
+.about_section .detail-box {
+  margin-top: 15px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #56bca4;
+  border: 1px solid #56bca4;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: transparent;
+  color: #56bca4;
+}
+/* end of about section */
+
+ /* special_section */
+.special_section .special_container {
+  color: #ffffff;
+  background-color: #56bca4;
+  padding: 25px;
+  margin-top: -97.5px;
+}
+
+.special_section .special_container .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.special_section .special_container .box .img-box {
+  width: 90px;
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 100%;
+}
+
+.special_section .special_container .box .img-box svg {
+  width: 50px;
+  height: auto;
+  fill: #317b6a;
+}
+
+.special_section .special_container .box .detail-box h4 {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.special_section .special_container .box .detail-box a {
+  display: inline-block;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.special_section .special_container .box.b2 {
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+ /* end special_section */
+
+ /* slider section */
+ .slider_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 45px 0 165px 0;
+  font-family: "Vazir-Medium";
+  text-align: right;
+  align-items: right;
+
+}
+
+.slider_section #carouselExampleIndicators {
+  width: 100%;
+}
+
+.slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider_section .detail-box {
+  margin-bottom: 110px;
+}
+
+.slider_section .detail-box h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #2a695a;
+}
+
+.slider_section .detail-box p {
+  margin-top: 10px;
+}
+
+.slider_section .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #56bca4;
+  border: 1px solid #56bca4;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #56bca4;
+}
+
+.slider_section .img-box img {
+  width: 100%;
+}
+
+.slider_section #carouselExampleIndicators {
+  bottom: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider_section #carouselExampleIndicators li {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 3px solid #000000;
+  border-radius: 100%;
+  opacity: 1;
+}
+
+.slider_section #carouselExampleIndicators li.active {
+  width: 12px;
+  height: 12px;
+  border-color: #56bca4;
+}
+/* end slider section */
+
+/*client section*/
+.client_section .heading_container {
+  margin-bottom: 30px;
+}
+
+.client_section .box {
+  margin: 15px 70px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  text-align: center;
+  background-color: #56bca4;
+  color: #ffffff;
+}
+
+.client_section .box .client_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.client_section .box .client_info .client_name h5 {
+  font-weight: 600;
+}
+
+.client_section .box .client_info .client_name h6 {
+  margin-bottom: 15px;
+  color: #f9f7f8;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.client_section .box .client_info i {
+  font-size: 24px;
+}
+
+.client_section .box p {
+  margin-top: 15px;
+}
+
+.client_section .carousel-control-prev,
+.client_section .carousel-control-next {
+  width: 55px;
+  height: 55px;
+  background-color: #35806e;
+  opacity: 1;
+  font-size: 28px;
+  font-weight: bold;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.client_section .carousel-control-prev {
+  left: 0;
+}
+
+.client_section .carousel-control-next {
+  right: 0;
+}
+
+.client_section .carousel_btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*end client section*/

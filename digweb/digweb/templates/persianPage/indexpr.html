@@ -16,7 +16,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="{% static 'images/aitec.jpg' %}" type="image/x-icon">
 
-  <title>AI Tec</title>
+  <title>خانه هوش مصنوعی </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
@@ -28,7 +28,7 @@
   <!-- datepicker -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
   <!-- Custom styles for this template -->
-  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <link href="{% static 'css/function_persian.css'%}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
 </head>
@@ -39,9 +39,9 @@
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{% url 'main'%}">
+          <a class="navbar-brand" href="{% url 'mainpr'%}">
             <h3>
-              AI Tec
+              خانه هوش مصنوعی 
             </h3>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,16 +51,16 @@
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'main'%}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'mainpr'%}">خانه <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'about_page'%}"> About </a>
+                <a class="nav-link" href="{% url 'aboutpr_page'%}"> درباره ما </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'service_page'%}"> Services </a>
+                <a class="nav-link" href="{% url 'servicepr_page'%}"> خدمات </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'mainpr'%}"> persian language </a>
+                <a class="nav-link" href="{% url 'main'%}"> زبان انگلیسی</a>
               </li>
             </ul>
             <form class="form-inline ">
@@ -84,13 +84,12 @@
                   <div class="detail-box">
                     <div>
                       <h1>
-                        Diabetes
+                        دیابت
                       </h1>
                       <p>
-                        With diabetes, your body doesn’t make enough insulin or can’t use it as well as it should. When there isn’t enough insulin or cells stop responding to insulin, too much blood sugar stays in your bloodstream. Over time, that can cause serious health problems, such as heart disease, vision loss, and kidney disease.
-                      </p>
-                      <a href="{% url 'diabetes_page'%}">
-                        Calculate my risk
+                        در دیابت، بدن شما انسولین کافی تولید نمی کند یا نمی تواند آنطور که باید از آن استفاده کند. وقتی انسولین کافی وجود نداشته باشد یا سلول‌ها به انسولین پاسخ ندهند، قند خون بیش از حد در جریان خون شما باقی می‌ماند. با گذشت زمان، این امر می تواند باعث مشکلات جدی سلامتی مانند بیماری قلبی، از دست دادن بینایی و بیماری کلیوی شود  </p>
+                      <a href="{% url 'diabetespr_page'%}">
+                        محاسبه ریسک
                       </a>
                     </div>
                   </div>
@@ -110,13 +109,12 @@
                   <div class="detail-box">
                     <div>
                       <h1>
-                        Stroke
+                        سکته
                       </h1>
                       <p>
-                        A stroke, sometimes called a brain attack, occurs when something blocks blood supply to part of the brain or when a blood vessel in the brain bursts. In either case, parts of the brain become damaged or die. A stroke can cause lasting brain damage, long-term disability, or even death.
-                      </p>
-                      <a href="{% url 'stroke_page'%}">
-                        Calculate my risk
+                        سکته مغزی که گاهی حمله مغزی نیز نامیده می شود، زمانی اتفاق می افتد که چیزی جریان خون بخشی از مغز را مسدود می کند یا زمانی که یک رگ خونی در مغز می ترکد. در هر صورت، بخش‌هایی از مغز آسیب دیده یا می‌میرند. سکته مغزی می تواند باعث آسیب مغزی پایدار، ناتوانی طولانی مدت یا حتی مرگ شود </p>
+                      <a href="{% url 'strokepr_page'%}">
+                        محاسبه ریسک
                       </a>
                     </div>
                   </div>
@@ -136,12 +134,13 @@
                   <div class="detail-box">
                     <div>
                       <h1>
-                        Cardiovascular Disease
+                        بیماری قلبی و عروقی
                       </h1>
                       <p>
-                        Cardiovascular disease refers to health problems related to the heart and blood vessels. This includes conditions like heart attacks and strokes, often caused by factors such as unhealthy lifestyle, high blood pressure, and genetics. Taking steps like eating well, staying active, and managing risk factors helps prevent cardiovascular disease. If someone already has it, medications and surgeries can be used to manage the condition.                      </p>
-                      <a href="{% url 'cvd_page'%}">
-                        Calculate my risk
+                      بیماری قلبی عروقی به مشکلات سلامتی مربوط به قلب و عروق خونی اشاره دارد. این شامل شرایطی مانند حملات قلبی و سکته است که اغلب به دلیل عواملی مانند سبک زندگی ناسالم، فشار خون بالا و ژنتیک ایجاد می شود. انجام اقداماتی مانند خوب غذا خوردن، فعال ماندن و مدیریت عوامل خطر به پیشگیری از بیماری های قلبی عروقی کمک می کند. اگر فردی قبلاً آن را داشته باشد، می‌توان از داروها و جراحی‌ها برای مدیریت این بیماری استفاده کرد
+                      </p>                      
+                      <a href="{% url 'cvdpr_page'%}">
+                        محاسبه ریسک
                       </a>
                     </div>
                   </div>
@@ -161,13 +160,13 @@
                   <div class="detail-box">
                     <div>
                       <h1>
-                        Chronic Kidney Disease
+                        بیماری مزمن کلیوی
                       </h1>
                       <p>
-                        Chronic kidney disease includes conditions that damage your kidneys and decrease their ability to keep you healthy by filtering wastes from your blood. If kidney disease worsens, wastes can build to high levels in your blood and make you feel sick.
+                        بیماری مزمن کلیوی شامل شرایطی است که به کلیه‌های شما آسیب می‌رساند و با فیلتر کردن مواد زائد از خون، توانایی آن‌ها در حفظ سلامتی شما را کاهش می‌دهد. اگر بیماری کلیوی تشدید شود، مواد زائد می توانند در خون شما به سطح بالایی برسند و باعث ایجاد احساس بیماری در شما شوند
                       </p>
-                      <a href="{% url 'ckd_page'%}">
-                        Calculate my risk
+                      <a href="{% url 'ckdpr_page'%}">
+                        محاسبه
                       </a>
                     </div>
                   </div>
@@ -478,7 +477,7 @@
       <div class="heading_container heading_center">
         <h2>
           <span class="design_dot"></span>
-          About our team
+          درباره تیم ما
         </h2>
       </div>
       <div class="col-md-7 mx-auto px-0">
@@ -489,10 +488,10 @@
       <div class="col-md-9 mx-auto px-0">
         <div class="detail-box">
           <p>
-            Our commitment extends to developing AI-powered diagnostics that can assist healthcare professionals in early detection and intervention, contributing to more effective disease management and improved patient outcomes.
+            تعهد ما به توسعه تشخیص های مبتنی بر هوش مصنوعی است که می تواند به متخصصان مراقبت های بهداشتی در تشخیص زودهنگام و مداخله کمک کند و به مدیریت مؤثرتر بیماری و بهبود نتایج بیمار کمک کند  </p>
           </p>
-          <a href="{% url 'about_page'%}">
-            Read More
+          <a href="{% url 'aboutpr_page'%}">
+            موارد بیشتر
           </a>
         </div>
       </div>
@@ -508,10 +507,10 @@
       <div class="heading_container heading_center">
         <h2>
           <span class="design_dot"></span>
-          Our Services
+          خدمات ما
         </h2>
         <p>
-          You can use other services, click on icon
+          شما می توانید از خدمات دیگر ما استفاده کنید، کافی است روی آن ها کلیک کنید
         </p>
       </div>
       <div class="row">
@@ -520,19 +519,19 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'cvd_page'%}">
+            <a href="{% url 'cvdpr_page'%}">
               <img src="{% static 'images/s1.png' %}" alt="" />
               <br>
-              Cardio Vascular Disease
+              پیش بینی بیماری قلبی و عروقی
             </a>
           </div>
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'diabetes_page'%}">
+            <a href="{% url 'diabetespr_page'%}">
               <img src="{% static 'images/s2.png' %}" alt="" />
               <br>
-              Diabetes
+              پیش بینی بیماری دیابت
             </a>
           </div>
         </div>
@@ -541,19 +540,19 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'ckd_page'%}">
+            <a href="{% url 'ckdpr_page'%}">
               <img src="{% static 'images/s3.png' %}" alt="" />
               <br>
-              Chronic Kidney Disease
+              پیش بینی بیماری مزمن کلیوی
             </a>
           </div>
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'stroke_page'%}">
+            <a href="{% url 'strokepr_page'%}">
               <img src="{% static 'images/s4.png' %}" alt="" />
               <br>
-              Stroke
+              پیش بینی سکته
             </a>
           </div>
         </div>
@@ -562,14 +561,14 @@
             <a href="{% url 'under_page'%}">
               <img src="{% static 'images/s5.png' %}" alt="" />
               <br>
-              Therapy
+              درمان
             </a>
           </div>
         </div>
       </div>
       <div class="btn-box">
-        <a href="{% url 'service_page'%}">
-          View All
+        <a href="{% url 'servicepr_page'%}">
+          نمایش همه
         </a>
       </div>
     </div>
@@ -675,82 +674,83 @@
 
   <!-- end map section -->
 
-  <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="info_menu">
-            <h5>
-              QUICK LINKS
-            </h5>
-            <ul class="navbar-nav  ">
-              <li class="nav-item ">
-                <a class="nav-link" href="{% url 'main'%}">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about_page'%}"> About </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'service_page'%}"> Services </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'mainpr'%}"> persian language </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="info_course">
-            <h5>
-              AI TEC
-            </h5>
-            <p>
-              AI TEC one subset of Electrooptics Industry IRAN (SAPA) which works with the purpose of developing artificial intelligence
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-5 offset-md-1">
-          <div class="info_news">
-            <h5>
-              FOR ANY QUERY, PLEASE WRITE TO US
-            </h5>
-            <div class="info_contact">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i> Location : Isfahan, Isfahan Province, Ostad Falaturi st, Pasargad Shopping mall 
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i> A.I.Tec.IRAN@gmail.com
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i> Call : +31 34597406
-              </a>
+    <!-- info section -->
+    <section class="info_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="info_menu">
+              <h5>
+                لینک های سریع
+              </h5>
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="{% url 'mainpr'%}">خانه <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'aboutpr_page'%}"> درباره ما </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'servicepr_page'%}"> خدمات </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'main'%}"> زبان انگلیسی</a>
+                </li>
+              </ul>
             </div>
-            <form action="">
-              <input type="text" placeholder="Enter Your email" />
-              <button>
-                Subscribe
-              </button>
-            </form>
+          </div>
+          <div class="col-md-3">
+            <div class="info_course">
+              <h5>
+                خانه هوش مصنوعی
+              </h5>
+              <p>
+                خانه هوش مصنوعی یکی از زیرمجموعه های صنعت الکترواپتیک ایران (صاپا) است که با هدف توسعه هوش مصنوعی فعالیت می کند
+  
+              </p>
+            </div>
+          </div>
+  
+          <div class="col-md-5 offset-md-1">
+            <div class="info_news">
+              <h5>
+                برای هر گونه سوال، لطفا برای ما بنویسید
+              </h5>
+              <div class="info_contact">
+                <a href="">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> مکان: اصفهان، استان اصفهان، خیابان استاد فلاطوری، مرکز خرید پاسارگاد
+                </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i> A.I.Tec.IRAN@gmail.com
+                </a>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i> شماره تماس :34597406-031
+                </a>
+              </div>
+              <form action="">
+                <input type="text" placeholder="ایمیل خود را وارد کنید" />
+                <button>
+                  ارسال
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  
+    <!-- end info section -->
 
-  <!-- end info section -->
-
-  <!-- footer section -->
-  <footer class="container-fluid footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">AI TEC Company</a>
-      </p>
-    </div>
-  </footer>
-  <!-- footer section -->
+ <!-- footer section -->
+ <footer class="container-fluid footer_section">
+  <div class="container">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved By
+      <a href="https://html.design/">AI TEC Company</a>
+    </p>
+  </div>
+</footer>
+<!-- footer section -->
 
   <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.js' %}"></script>

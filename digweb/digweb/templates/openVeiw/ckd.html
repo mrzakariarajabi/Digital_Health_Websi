@@ -73,7 +73,7 @@
                 <a class="nav-link" href="{% url 'service_page'%}"> Services <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'appointment_page'%}"> Appointment </a>
+                <a class="nav-link" href="{% url 'ckdpr_page'%}"> persian language </a>
               </li>
             </ul>
             <form class="form-inline ">
@@ -90,7 +90,7 @@
 
   <!-- ckd section -->
 
-  <section class="ckd_section layout_padding">
+  <section class="ckd_section disease_section layout_padding">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -183,6 +183,8 @@
   <!--  discription section -->
   <section class="section_discribe">
     <div class="discribe">
+      <br>
+      <br>
       <p class ="text_result" id="discribe_text"> </p>
     </div>
   </section>
@@ -205,8 +207,9 @@
       
       <div class="col-md-4 mx-auto">
         <div class="box">
-          <img src="{% static 'images/s1.png' %}" alt="" />
           <a href="{% url 'cvd_page'%}">
+            <img src="{% static 'images/s1.png' %}" alt="" />
+            <br>
             Cardiovascular disease
           </a>
         </div>
@@ -214,8 +217,9 @@
 
       <div class="col-md-4 mx-auto">
         <div class="box">
-          <img src="{% static 'images/s4.png' %}" alt="" />
           <a href="{% url 'stroke_page'%}">
+            <img src="{% static 'images/s4.png' %}" alt="" />
+            <br>
             Stroke
           </a>
         </div>
@@ -223,8 +227,9 @@
 
       <div class="col-md-4 mx-auto">
         <div class="box">
-          <img src="{% static 'images/s2.png' %}" alt="" />
           <a href="{% url 'diabetes_page'%}">
+            <img src="{% static 'images/s2.png' %}" alt="" />
+            <br>
             Diabetes
           </a>
         </div>
@@ -261,7 +266,7 @@
                 <a class="nav-link" href="{% url 'service_page'%}"> Services </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'appointment_page'%}"> Appointment </a>
+                <a class="nav-link" href="{% url 'ckdpr_page'%}"> persian language </a>
               </li>
             </ul>
           </div>

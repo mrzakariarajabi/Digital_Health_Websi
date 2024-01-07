@@ -27,13 +27,20 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('zakaria/', views.zakaria, name="zakaria"),
     path('', views.mainpage, name="main"),
+    path('pr/', views.mainpr_page, name="mainpr"),
     path('about/', views.about_page, name="about_page"),
+    path('about/pr/', views.aboutpr_page, name="aboutpr_page"),
     path('appointment/', views.appointment_page, name="appointment_page"),
     path('service/', views.service_page, name="service_page"),
+    path('service/pr/', views.servicepr_page, name="servicepr_page"),
     path('diabetes/', views.diabetes_page, name="diabetes_page"),
+    path('diabetes/pr/', views.diabetespr_page, name="diabetespr_page"),
     path('stroke/', views.stroke_page, name="stroke_page"),
+    path('stroke/pr/', views.strokepr_page, name="strokepr_page"),
     path('ckd/', views.ckd_page, name="ckd_page"),
+    path('ckd/pr/', views.ckdpr_page, name="ckdpr_page"),
     path('cvd/', views.cvd_page, name="cvd_page"),
+    path('cvd/pr/', views.cvdpr_page, name="cvdpr_page"),
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
     ##
