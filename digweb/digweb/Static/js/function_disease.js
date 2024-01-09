@@ -82,7 +82,7 @@ function diabetes_Results(page_number)
             BMI_point = 3
         }
     //Gender
-    if (Gender_value==1){ //Male
+    if (Gender_value==0){ //Male
       
         if (Waist_value < 94){
                 Waist_risk = 0

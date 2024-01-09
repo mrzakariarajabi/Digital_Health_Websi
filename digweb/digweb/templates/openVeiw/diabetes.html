@@ -94,7 +94,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form method="POST">{%csrf_token%}
             <h4>
               <span class="design_dot"></span>
               Diabetes Predictor
@@ -107,32 +107,32 @@
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientGender">Gender</label>
-                <select name="" class="form-control wide" id="inputPatientGender">
-                  <option value=1>Male</option>
-                  <option value=2>Female </option>
+                <select name="PatientGender" class="form-control wide" id="inputPatientGender">
+                  <option value=0>Male</option>
+                  <option value=1>Female </option>
                 </select>
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientWeight">Weight (Kg) </label>
-                <input type="number" class="form-control" id="inputDiabetesWeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
+                <input type="number" name="PatientWeight" class="form-control" id="inputDiabetesWeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientWaist">Waist (cm)</label>
-                <input type="number" class="form-control" id="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(150, parseInt(this.value)));">
+                <input type="number" name="PatientWaist" class="form-control" id="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(150, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientHeight">Height (cm)</label>
-                <input type="number" class="form-control" id="inputPatientHeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
+                <input type="number" name="PatientHeight" class="form-control" id="inputPatientHeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
               </div>
               
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <input type="checkbox" id="inputPationtPhysicalActivity" name="checkbox2" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtPhysicalActivity" name="PationtPhysicalActivity" value="1" class="control__indicator">
                 <label for="inputPationtPhysicalActivity">Do yo have physical activity for more than 30 minutes every day? </label>
                 </div>
             </div>
@@ -140,24 +140,28 @@
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 
-                <input type="checkbox" id="inputPationtGlucose" name="checkbox3" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtGlucose" name="PationtGlucose" value="1" class="control__indicator">
                 <label for="inputPationtGlucose">Do you have History of family glucose ?</label>
               </div>
               <div class="form-group col-lg-4">
                 
-                <input type="checkbox" id="inputPationtVegetables" name="checkbox4" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtVegetables" name="PationtVegetables" value="1" class="control__indicator">
                 <label for="inputPationtGlucose">Do you have Daily consumption of vegetables, fruits, or berries ?</label>
               </div>
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <input type="checkbox" id="inputPatientDrugHistory" name="checkbox1" value="1" class="control__indicator" >
+                <input type="checkbox" id="inputPatientDrugHistory" name="PatientDrugHis" value="1" class="control__indicator" >
                 <label for="inputPationtDrugHistory" class="check-box">Do you have History of use Drug ?</label>
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputidnumber">ID number </label>
+                <input type="number" class="form-control" id="inputidnumber" name="idnumber" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(9999999999, parseInt(this.value)));">
               </div>
             </div>
 
             <div class="btn-box">
-              <button type="button" class="btn " onclick="diabetes_Results();">Calculate Now</button>
+              <button type="submit" class="btn " onclick="diabetes_Results();">Calculate Now</button>
             </div>
           </form>
         </div>

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .models import diabetes_disease
 def mainpage(request):
     return render(request, "openVeiw/index.html")
     #return render(request, "hello/index.html")
@@ -27,6 +27,23 @@ def servicepr_page(request):
     return render(request, "persianPage/servicepr.html")
 
 def diabetes_page(request):
+    if request.method =='POST':
+        id_number = request.POST['idnumber']
+        age=request.POST['DiabetesAge']
+        weight=request.POST['PatientWeight']
+        height=request.POST['PatientHeight']
+        waist=request.POST['PatientWaist']
+        gender=request.POST.get('PatientGender')
+        druge_history=request.POST.get('PatientDrugHis', '') == 'on'
+        vegetabls=request.POST.get('PationtVegetables', '') == 'on'
+        His_family_glucose=request.POST.get('PationtGlucose', '') == 'on'
+        #PationtPhysicalActivity=request.POST.get('PationtPhysicalActivity')
+        new_patient_diabetes=diabetes_disease(id_number=id_number,age=age,height=height,
+                                              weight=weight,waist=waist,gender=gender,
+                                              druge_history=druge_history,vegetabls=vegetabls,
+                                              His_family_glucose=His_family_glucose)
+        #,PationtPhysicalActivity=PationtPhysicalActivity
+        new_patient_diabetes.save()
     return render(request, "openVeiw/diabetes.html")
 
 def diabetespr_page(request):

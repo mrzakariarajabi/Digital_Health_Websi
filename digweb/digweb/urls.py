@@ -44,6 +44,5 @@ urlpatterns = [
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
     ##
-    test = 1
     ##
 ]
