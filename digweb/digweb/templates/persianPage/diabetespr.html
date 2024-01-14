@@ -34,6 +34,8 @@
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
   <!-- java script function for calculate risk  -->
   <script src="{% static 'js/function_disease.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body class="sub_page">
@@ -84,39 +86,39 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form id="post-diabetes" >{%csrf_token%}
             <h4>
               پیش بینی ریسک دیابت
               <span class="design_dot"></span>
             </h4>
             <div class="form-row ">
               <div class="form-group col-lg-4">
-                <label for="inputPatientAge" >سن </label>
-                <input type="number" class="form-control" id="inputDiabetesAge" name="DiabetesAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
+                <label for="inputDiabetesAge" >سن </label>
+                <input type="number" class="form-control" id="inputDiabetesAge" name="inputDiabetesAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientGender">جنسیت</label>
-                <select name="" class="form-control wide" id="inputPatientGender">
+                <select name="inputPatientGender" class="form-control wide" id="inputPatientGender">
                   <option value=0>مرد</option>
                   <option value=1>زن </option>
                 </select>
               </div>
 
               <div class="form-group col-lg-4">
-                <label for="inputPatientWeight">وزن (کیلوگرم) </label>
-                <input type="number" class="form-control" id="inputDiabetesWeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
+                <label for="inputDiabetesWeight">وزن (کیلوگرم) </label>
+                <input type="number" class="form-control" id="inputDiabetesWeight"  name="inputDiabetesWeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientWaist">دور کمر(سانتی متر)</label>
-                <input type="number" class="form-control" id="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(150, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientWaist" name="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(150, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientHeight">قد (سانتی متر)</label>
-                <input type="number" class="form-control" id="inputPatientHeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientHeight" name="inputPatientHeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
               </div>
               
               <div class="form-group col-lg-4">
@@ -133,24 +135,28 @@
                 <br>
                 <br>
                 <label for="inputPationtGlucose">آیا سابقه بیماری دیابت در خانواده تان دارید؟</label>
-                <input type="checkbox" id="inputPationtGlucose" name="checkbox3" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtGlucose" name="inputPationtGlucose" value="1" class="control__indicator">
               </div>
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtGlucose">آیا در طول روز از میوه و سبزیجات استفاده می کنید؟</label>
-                <input type="checkbox" id="inputPationtVegetables" name="checkbox4" value="1" class="control__indicator">
+                <label for="inputPationtVegetables">آیا در طول روز از میوه و سبزیجات استفاده می کنید؟</label>
+                <input type="checkbox" id="inputPationtVegetables" name="inputPationtVegetables" value="1" class="control__indicator">
               </div>
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtDrugHistory" class="check-box">آیا سابقه مصرف داروی مرتبط دارید ؟</label>
-                <input type="checkbox" id="inputPatientDrugHistory" name="checkbox1" value="1" class="control__indicator" >
+                <label for="inputPatientDrugHistory" class="check-box">آیا سابقه مصرف داروی مرتبط دارید ؟</label>
+                <input type="checkbox" id="inputPatientDrugHistory" name="inputPatientDrugHistory" value="1" class="control__indicator" >
+              </div>
+              <div class="form-group col-lg-4">
+                <label for="inputidnumber">کد ملی </label>
+                <input type="number" class="form-control" id="inputidnumber" name="inputidnumber" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(9999999999, parseInt(this.value)));">
               </div>
             </div>
 
             <div class="btn-box">
-              <button type="button" class="btn " onclick="diabetes_Results(page_number);">محاسبه ریسک</button>
+              <button type="submit" class="btn " onclick="diabetes_Results(page_number);">محاسبه ریسک</button>
             </div>
           </form>
         </div>
@@ -305,5 +311,31 @@
   <!-- footer section -->
 
 </body>
+<script type="text/javascript">
+  $(document).on('submit','#post-diabetes',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'create/',
+      data:{
+        inputidnumber:$('#inputidnumber').val(),
+        inputDiabetesAge:$('#inputDiabetesAge').val(),
+        inputDiabetesWeight:$('#inputDiabetesWeight').val(),
+        inputPatientHeight:$('inputPatientHeight').val(),
+        inputPatientWaist:$('#inputPatientWaist').val(),
+        inputPatientGender:$('#inputPatientGender').val(),
+        inputPatientDrugHistory:($("#inputPatientDrugHistory:checked").prop("checked") == true ? 1 : 0),
+        inputPationtVegetables:($("#inputPationtVegetables:checked").prop("checked") == true ? 1 : 0),
+        inputPationtGlucose:($("#inputPationtGlucose:checked").prop("checked") == true ? 1 : 0),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
 
+      },
+      success: function (){
+
+      }
+    });
+  });
+
+  
+</script>
 </html>
