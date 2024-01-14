@@ -41,6 +41,16 @@ urlpatterns = [
     path('ckd/pr/', views.ckdpr_page, name="ckdpr_page"),
     path('cvd/', views.cvd_page, name="cvd_page"),
     path('cvd/pr/', views.cvdpr_page, name="cvdpr_page"),
+    path('diabetes/create/', views.create_diabetes,name="create_diabetes"),
+    path('cvd/create/', views.create_cvd,name="create_cvd"),
+    path('stroke/create/', views.create_stroke,name="create_stroke"),
+    path('ckd/create/', views.create_ckd,name="create_ckd"),
+
+    path('diabetes/pr/create/', views.create_diabetes,name="createpr_diabetes"),
+    path('cvd/pr/create/', views.create_cvd,name="createpr_cvd"),
+    path('stroke/pr/create/', views.create_stroke,name="createpr_stroke"),
+    path('ckd/pr/create/', views.create_ckd,name="createpr_ckd"),
+
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
     ##
