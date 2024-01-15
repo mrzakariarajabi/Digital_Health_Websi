@@ -69,7 +69,7 @@ def create_diabetes(request):
         new_patient_diabetes=diabetes_disease(id_number=id_number,age=age,height=height,
                                               weight=weight,waist=waist,gender=gender,
                                               druge_history=druge_history,vegetabls=vegetabls,
-                                              His_family_glucose=His_family_glucose)
+                                              His_family_glucose=His_family_glucose,)
         
         new_patient_diabetes.save()
         return HttpResponse()

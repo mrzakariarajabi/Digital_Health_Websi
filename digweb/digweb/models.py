@@ -12,7 +12,7 @@ class diabetes_disease(models.Model):
     druge_history = models.BooleanField()
     vegetabls  = models.BooleanField()
     His_family_glucose = models.BooleanField()
-
+    #PationtPhysicalActivity = models.BooleanField()
     def __str__(self):
         return f"patiant with id number :{self.id_number}, age:{self.age},height :{self.height}, waist:{self.waist}, weight:{self.weight},gender:{self.gender}, druge history:{self.druge_history},vegetables:{self.vegetabls} His family glucose:{self.His_family_glucose}"
     
