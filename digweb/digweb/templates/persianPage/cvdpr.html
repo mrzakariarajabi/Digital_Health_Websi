@@ -34,6 +34,8 @@ var page_number=1;
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
   <!-- java script function for calculate risk  -->
   <script src="{% static 'js/function_disease.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body class="sub_page">
@@ -84,7 +86,7 @@ var page_number=1;
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form id="post-cvd">{%csrf_token%}
             <h4>
               پیش بینی بیماری قلبی و عروقی
               <span class="design_dot"></span>
@@ -92,12 +94,12 @@ var page_number=1;
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientAge">سن </label>
-                <input type="number" class="form-control" id="inputPatientAge" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientAge" name="inputPatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientGender">جنسیت</label>
-                <select name="" class="form-control wide" id="inputPatientGender">
+                <select name="inputPatientGender" class="form-control wide" id="inputPatientGender">
                   <option value=0>مرد</option>
                   <option value=1>زن </option>
                 </select>
@@ -105,25 +107,25 @@ var page_number=1;
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientSBP">فشار خون سیستولیک(میلی متر جیوه) </label>
-                <input type="number" class="form-control" id="inputPatientSBP" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientSBP" name="inputPatientSBP" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientWaist">اندازه دور کمر (سانتی متر) </label>
-                <input type="number" class="form-control" id="inputPatientWaist" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientWaist" name="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientHip">اندازه دور ران (سانتی متر) </label>
-                <input type="number" class="form-control" id="inputPatientHip" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientHip" name="inputPatientHip" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
               
               <div class="form-group col-lg-4">
                 <br>
                 <br>
                 <label for="inputPationtSmoke">آیا سیگار می کشید ؟ </label>
-                <input type="checkbox" id="inputPationtSmoke" name="checkbox2" value="1" class="control__indicator">  
+                <input type="checkbox" id="inputPationtSmoke" name="inputPationtSmoke" value="1" class="control__indicator">  
               </div>
             </div>
 
@@ -132,14 +134,17 @@ var page_number=1;
                 <br>
                 
                 <label for="inputPationtDiabetes">آیا بیماری دیابت دارید ؟</label>
-                <input type="checkbox" id="inputPationtDiabetes" name="checkbox3" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtDiabetes" name="inputPationtDiabetes" value="1" class="control__indicator">
                 <br>
               </div>
-              
+              <div class="form-group col-lg-4">
+                <label for="inputidnumber">کد ملی </label>
+                <input type="number" class="form-control" id="inputidnumber" name="inputidnumber" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(9999999999, parseInt(this.value)));">
+              </div>
             </div>
 
             <div class="btn-box" >
-              <button type="button" class="btn " onclick="cvd_Results(page_number);">محاسبه ریسک</button>
+              <button type="submit" class="btn " onclick="cvd_Results(page_number);">محاسبه ریسک</button>
             </div>
           </form>
         </div>
@@ -296,5 +301,30 @@ var page_number=1;
   <!-- footer section -->
 
 </body>
+<script type="text/javascript">
+  $(document).on('submit','#post-cvd',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'create/',
+      data:{
+        inputidnumber:$('#inputidnumber').val(),
+        inputPatientAge:$('#inputPatientAge').val(),
+        inputPatientGender:$('#inputPatientGender').val(),
+        inputPatientSBP:$('#inputPatientSBP').val(),
+        inputPatientWaist:$('inputPatientWaist').val(),
+        inputPatientHip:$('#inputPatientHip').val(),
+        inputPationtSmoke:($("#inputPationtSmoke:checked").prop("checked") == true ? 1 : 0),
+        inputPationtDiabetes:($("#inputPationtDiabetes:checked").prop("checked") == true ? 1 : 0),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
 
+      },
+      success: function (){
+
+      }
+    });
+  });
+
+  
+</script>
 </html>

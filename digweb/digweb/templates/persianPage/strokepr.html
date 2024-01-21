@@ -34,6 +34,8 @@
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
   <!-- java script function for calculate risk  -->
   <script src="{% static 'js/function_disease.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body class="sub_page">
@@ -84,7 +86,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form id="post-stroke">{%csrf_token%}
             <h4>
               پیش بینی سکته
               <span class="design_dot"></span>
@@ -92,20 +94,20 @@
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientAge">سن </label>
-                <input type="number" class="form-control" id="inputPatientAge" name="PationtAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientAge" name="inputPatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientSBPHistory">فشار خون سیستولیک(میلی متر جیوه)</label>
-                <input type="number" class="form-control" id="inputPatientSBPHistory" name="PationtAge" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(200, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientSBPHistory" name="inputPatientSBPHistory" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(200, parseInt(this.value)));">
               
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientGender">جنسیت</label>
-                <select name="" class="form-control wide" id="inputPatientGender">
-                  <option value=1>مرد</option>
-                  <option value=2>زن </option>
+                <select name="inputPatientGender" class="form-control wide" id="inputPatientGender">
+                  <option value=0>مرد</option>
+                  <option value=1>زن </option>
                 </select>
                 </div>
             </div>
@@ -113,8 +115,8 @@
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtDrugHistory" class="check-box">آیا داروی مرتبط استفاده می کنید ؟</label>
-                <input type="checkbox" id="inputPatientDrugHistory" name="checkbox1" value="1" class="control__indicator">
+                <label for="inputPatientDrugHistory" class="check-box">آیا داروی مرتبط استفاده می کنید ؟</label>
+                <input type="checkbox" id="inputPatientDrugHistory" name="inputPatientDrugHistory" value="1" class="control__indicator">
                 
               </div>
 
@@ -122,7 +124,7 @@
                 <br>
                 <br>
                 <label for="inputPatientDiabetes" class="check-box">آیا دیابت دارید ؟</label>
-                <input type="checkbox" id="inputPatientDiabetes" name="checkbox1" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPatientDiabetes" name="inputPatientDiabetes" value="1" class="control__indicator">
 
               </div>
               
@@ -130,7 +132,7 @@
                 <br>
                 <br>
                 <label for="inputPationtSmoke">آیا سیگار می کشید ؟ </label>
-                <input type="checkbox" id="inputPationtSmoke" name="checkbox2" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtSmoke" name="inputPationtSmoke" value="1" class="control__indicator">
 
               </div>
             </div>
@@ -139,31 +141,31 @@
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtGlucose">آیا بیماری قلبی و عروقی دارید ؟ </label>
-                <input type="checkbox" id="inputPationtCVD" name="checkbox3" value="1" class="control__indicator">
+                <label for="inputPationtCVD">آیا بیماری قلبی و عروقی دارید ؟ </label>
+                <input type="checkbox" id="inputPationtCVD" name="inputPationtCVD" value="1" class="control__indicator">
 
               </div>
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtGlucose">آیا فیبریلاسیون دهلیزی دارید؟</label>
-                <input type="checkbox" id="inputPationtAF" name="checkbox4" value="1" class="control__indicator">
+                <label for="inputPationtAF">آیا فیبریلاسیون دهلیزی دارید؟</label>
+                <input type="checkbox" id="inputPationtAF" name="inputPationtAF" value="1" class="control__indicator">
 
               </div>
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <label for="inputPationtGlucose">آیا هیپرتروفی بطن چپ دارید؟</label>
-                <input type="checkbox" id="inputPationtLVH" name="checkbox4" value="1" class="control__indicator">
+                <label for="inputPationtLVH">آیا هیپرتروفی بطن چپ دارید؟</label>
+                <input type="checkbox" id="inputPationtLVH" name="inputPationtLVH" value="1" class="control__indicator">
               </div>
             </div>
             <div class="form-row ">
               
               <div class="form-group col-lg-4">
                 <br>
-                <label for="years">ریسک چند ساله را می خواهید ؟</label>
+                <label for="inputyear">ریسک چند ساله را می خواهید ؟</label>
           
-                <select name="" class="form-control wide" id="year">
+                <select name="inputyear" class="form-control wide" id="inputyear">
                   <option value=1>1</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -177,11 +179,15 @@
                 </select>
                 
               </div>
-              
+              <div class="form-group col-lg-4">
+                <br>
+                <label for="inputidnumber"> کد ملی</label>
+                <input type="number" class="form-control" id="inputidnumber" name="inputidnumber" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(9999999999, parseInt(this.value)));">
+              </div>
             </div>
 
             <div class="btn-box">
-              <button type="button" class="btn " onclick="stroke_Results(page_number);">محاسبه ریسک</button>
+              <button type="submit" class="btn " onclick="stroke_Results(page_number);">محاسبه ریسک</button>
             </div>
           </form>
         </div>
@@ -337,5 +343,34 @@
   <!-- footer section -->
 
 </body>
+<script type="text/javascript">
+  $(document).on('submit','#post-stroke',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'create/',
+      data:{
+        inputidnumber:$('#inputidnumber').val(),
+        inputPatientAge:$('#inputPatientAge').val(),
+        inputPatientSBPHistory:$('#inputPatientSBPHistory').val(),
+        inputPatientGender:$('#inputPatientGender').val(),
 
+        inputPatientDrugHistory:($("#inputPatientDrugHistory:checked").prop("checked") == true ? 1 : 0),
+        inputPatientDiabetes:($("#inputPatientDiabetes:checked").prop("checked") == true ? 1 : 0),
+        inputPationtSmoke:($("#inputPationtSmoke:checked").prop("checked") == true ? 1 : 0),
+        inputPationtCVD:($("#inputPationtCVD:checked").prop("checked") == true ? 1 : 0),
+        inputPationtAF:($("#inputPationtAF:checked").prop("checked") == true ? 1 : 0),
+        inputPationtLVH:($("#inputPationtLVH:checked").prop("checked") == true ? 1 : 0),
+
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+
+      },
+      success: function (){
+
+      }
+    });
+  });
+
+  
+</script>
 </html>

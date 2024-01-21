@@ -33,7 +33,7 @@ function diabetes_Results(page_number)
 
     //var PatientBMI = document.getElementById('inputPatientBMI'),
       //BMI_value = PatientBMI.value;
-    console.log("BMI = " + BMI_value);
+    //console.log("BMI = " + BMI_value);
 //Waist
     var PatientWaist = document.getElementById('inputPatientWaist'),
     Waist_value = PatientWaist.value;
@@ -127,6 +127,7 @@ else{
   document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (final_Risk*100).toFixed(2)+" Percent.";
 
 }
+/////////////////////////////////////////////
 
 
 }
@@ -188,7 +189,7 @@ function stroke_Results(page_number)
   
     //console.log( PI_value);
 //year
-var year = document.getElementById('year'),
+var year = document.getElementById('inputyear'),
     year_value = year.value;
     //console.log("The value is " + year_value);
 
@@ -197,7 +198,7 @@ var year = document.getElementById('year'),
         gender_value = gender.value;
     //console.log("The value is " + gender_value);
 //////////////
-      if (gender_value==1) {
+      if (gender_value==0) {
         console.log("income");
         func_men = (0.0505*Age_value)+(0.0140*SBPHistory_value)+(0.3263*DrugHistory)+0.3384*Diabetes+0.5147*Smoke+0.5195*PationtCVD+0.6061*PationtAF+0.8415*PationtLVH;
         exp_men = func_men - 5.6670;

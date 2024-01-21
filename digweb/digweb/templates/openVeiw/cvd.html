@@ -44,6 +44,8 @@
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
   <!-- java script function for calculate risk  -->
   <script src="{% static 'js/function_disease.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body class="sub_page">
@@ -94,7 +96,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form id="post-cvd">{%csrf_token%}
             <h4>
               <span class="design_dot"></span>
               Cardio Vascular Disease Predictor
@@ -102,12 +104,12 @@
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientAge">Age </label>
-                <input type="number" class="form-control" id="inputPatientAge" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientAge" name="inputPatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientGender">Gender</label>
-                <select name="" class="form-control wide" id="inputPatientGender">
+                <select name="inputPatientGender" class="form-control wide" id="inputPatientGender">
                   <option value=0>Male</option>
                   <option value=1>Female </option>
                 </select>
@@ -115,24 +117,24 @@
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientSBP">Sistolic Blood Pressure (mm/hg) </label>
-                <input type="number" class="form-control" id="inputPatientSBP" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientSBP" name="inputPatientSBP" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
               </div>
             </div>
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label for="inputPatientWaist">Waist (cm) </label>
-                <input type="number" class="form-control" id="inputPatientWaist" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientWaist" name="inputPatientWaist" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
 
               <div class="form-group col-lg-4">
                 <label for="inputPatientHip">Hip (cm) </label>
-                <input type="number" class="form-control" id="inputPatientHip" name="PatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
+                <input type="number" class="form-control" id="inputPatientHip" name="inputPatientHip" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(220, parseInt(this.value)));">
               </div>
               
               <div class="form-group col-lg-4">
                 <br>
                 <br>
-                <input type="checkbox" id="inputPationtSmoke" name="checkbox2" value="1" class="control__indicator">
+                <input type="checkbox" id="inputPationtSmoke" name="inputPationtSmoke" value="1" class="control__indicator">
                 <label for="inputPationtSmoke">Do you Smoke ? </label>
                 </div>
             </div>
@@ -145,11 +147,13 @@
                 <label for="inputPationtDiabetes">Do you have Diabetes ?</label>
                 <br>
               </div>
-              
+              <div class="form-group col-lg-4">
+                <label for="inputidnumber">id number </label>
+                <input type="number" class="form-control" id="inputidnumber" name="inputidnumber" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(9999999999, parseInt(this.value)));">
+              </div>
             </div>
-
             <div class="btn-box">
-              <button type="button" class="btn " onclick="cvd_Results();">Calculate Now</button>
+              <button type="submit" class="btn " onclick="cvd_Results();">Calculate Now</button>
             </div>
           </form>
         </div>
@@ -306,5 +310,30 @@
   <!-- footer section -->
 
 </body>
+<script type="text/javascript">
+  $(document).on('submit','#post-cvd',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'create/',
+      data:{
+        inputidnumber:$('#inputidnumber').val(),
+        inputPatientAge:$('#inputPatientAge').val(),
+        inputPatientGender:$('#inputPatientGender').val(),
+        inputPatientSBP:$('#inputPatientSBP').val(),
+        inputPatientWaist:$('inputPatientWaist').val(),
+        inputPatientHip:$('#inputPatientHip').val(),
+        inputPationtSmoke:($("#inputPationtSmoke:checked").prop("checked") == true ? 1 : 0),
+        inputPationtDiabetes:($("#inputPationtDiabetes:checked").prop("checked") == true ? 1 : 0),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
 
+      },
+      success: function (){
+
+      }
+    });
+  });
+
+  
+</script>
 </html>

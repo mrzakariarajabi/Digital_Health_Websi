@@ -12,7 +12,7 @@ class diabetes_disease(models.Model):
     druge_history = models.BooleanField()
     vegetabls  = models.BooleanField()
     His_family_glucose = models.BooleanField()
-
+    #PationtPhysicalActivity = models.BooleanField()
     def __str__(self):
         return f"patiant with id number :{self.id_number}, age:{self.age},height :{self.height}, waist:{self.waist}, weight:{self.weight},gender:{self.gender}, druge history:{self.druge_history},vegetables:{self.vegetabls} His family glucose:{self.His_family_glucose}"
     
@@ -38,7 +38,7 @@ class ckd_disease(models.Model):
 class stroke_disease(models.Model):
     id_number = models.IntegerField(validators=[MaxValueValidator(9999999999)])
     sbp_number = models.IntegerField(validators=[MaxValueValidator(999)])
-    age = models.IntegerField(validators = [MaxValueValidator(999)])
+    age = models.IntegerField(validators=[MaxValueValidator(999)])
     gender = models.BooleanField()
     related_medicine = models.BooleanField()
     diabetes = models.BooleanField()
@@ -63,4 +63,4 @@ class cvd_disease(models.Model):
     hip = models.IntegerField(validators=[MaxValueValidator(999)])
 
     def __str__(self):
-        return f"pationt with id number:{self.id_number}, age:{self.age}, smoke:{self.smoke},diabetes:{self.diabetes}, SBP:{self.sbp_number},waist:{self.waist},hip:{self.hip}"
+        return f"pationt with id number:{self.id_number}, age:{self.age}, gender:{self.gender},sbp_number:{self.sbp_number}, smoke:{self.smoke},diabetes:{self.diabetes},waist:{self.waist},hip:{self.hip}"
