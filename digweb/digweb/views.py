@@ -26,6 +26,24 @@ def service_page(request):
 def servicepr_page(request):
     return render(request, "persianPage/servicepr.html")
 
+def dissai_page(request):
+    return render(request,"openVeiw/dissai.html")
+
+def dissaipr_page(request):
+    return render(request,"persianPage/dissaipr.html" )
+
+def digitalhealth_page(request):
+    return render(request,'openVeiw/digitalhealth.html')
+
+def digitalhealthpr_page(request):
+    return render(request, "persianPage/digitalhealthpr.html")
+
+def disscuseffect_page(request):
+    return render(request, "openVeiw/disscuseffect.html")
+
+def disscuseffectpr_page(request):
+    return render(request, "persianPage/disscuseffectpr.html")
+
 def diabetes_page(request):
     if request.method =='POST':
         id_number = request.POST['idnumber']

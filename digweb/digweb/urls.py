@@ -41,7 +41,13 @@ urlpatterns = [
     path('ckd/pr/', views.ckdpr_page, name="ckdpr_page"),
     path('cvd/', views.cvd_page, name="cvd_page"),
     path('cvd/pr/', views.cvdpr_page, name="cvdpr_page"),
-    path('underconstruction/', views.under_page, name="under_page")
+    path('underconstruction/', views.under_page, name="under_page"),
+    path('dissai/',views.dissai_page, name = "dissai_page"),
+    path ('dissaipr/', views.dissaipr_page , name = "dissaipr_page"),
+    path('digitalhealth/',views.digitalhealth_page, name = 'digitalhealth_page'),
+    path('digitalhealthpr/',views.digitalhealthpr_page, name = 'digitalhealthpr_page'),
+    path('disscuseffect/', views.disscuseffect_page, name = 'disscuseffect_page'),
+    path('disscuseffectpr/', views.disscuseffectpr_page, name= 'disscuseffectpr_page'),
     ##path('404/', views.page404_page, name="page404_page")
     ##
     ##
