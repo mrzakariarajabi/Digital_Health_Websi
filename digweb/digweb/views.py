@@ -106,7 +106,6 @@ def create_cvd(request):
         new_patient_cvd=cvd_disease(id_number=id_number,age=age,gender=gender,
                                               sbp_number=sbp_number,waist=waist,hip=hip,
                                               smoke=smoke,diabetes=diabetes)
- 
         
         new_patient_cvd.save()
         return HttpResponse()
