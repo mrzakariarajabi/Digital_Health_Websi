@@ -219,7 +219,12 @@ var year = document.getElementById('inputyear'),
         f_women = Math.exp(exp_women);
         risk_women = 1-Math.pow(year_women[year_value-1], f_women);
         console.log("women = "+risk_women*100);
-        document.getElementById("discribe_text").innerHTML = "your " + year_value + " year Risk equal by " + (risk_women*100).toFixed(2)+" Percent.";
+        if (page_number==1){
+          document.getElementById("discribe_text").innerHTML = "ریسک " + year_value + " ساله شما برابر است با " + (risk_women*100).toFixed(2)+" درصد";
+        }
+        else{
+          document.getElementById("discribe_text").innerHTML = "your " + year_value + " year Risk equal by " + (risk_women*100).toFixed(2)+" Percent.";
+        }
 
       }
 }

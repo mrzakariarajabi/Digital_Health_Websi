@@ -24,7 +24,7 @@ from . import views
 ##import views
 app_name = "digital"
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('dataadminpage/', admin.site.urls),
     path('zakaria/', views.zakaria, name="zakaria"),
     path('', views.mainpage, name="main"),
     path('pr/', views.mainpr_page, name="mainpr"),

@@ -300,6 +300,8 @@ align-items: right;
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
+  text-align: right;
+  align-items: right;
   padding: 45px 15px 15px;
   color: #000000;
   text-align: center;
@@ -669,8 +671,11 @@ a:focus {
 
 .about_section .detail-box {
   margin-top: 15px;
+  
 }
-
+.detail-list{
+  float: right;
+}
 .about_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
@@ -678,6 +683,7 @@ a:focus {
   border: 1px solid #56bca4;
   color: #ffffff;
   margin-top: 15px;
+  
 }
 
 .about_section .detail-box a:hover {
@@ -692,6 +698,7 @@ a:focus {
   background-color: #56bca4;
   padding: 25px;
   margin-top: -97.5px;
+  font-family: "Vazir-Medium";
 }
 
 .special_section .special_container .box {
