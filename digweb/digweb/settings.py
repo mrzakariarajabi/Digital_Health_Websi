@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ys=)71rx+qsibpm$*%r&t&!+gif=fp6xfab)pe%z0zhkol-!mm'
+SECRET_KEY = env('MY_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = []
-#DEBUG = False
+DEBUG = True
 #ALLOWED_HOSTS = ['*'] #Do not use in production
 
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'axes.middleware.AxesMiddleware', # axes brute force attack
+]
+
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'digweb.urls'
@@ -130,3 +144,40 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'digweb/static')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTO_LOGOUT = {
+'IDLE_TIME': 10,
+'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+
+}
+
+# axes configuration settings 
+AXES_FAILURE_LIMIT: 3 # How many times a user can fail a login
+AXES_COOLOFF_TIME: 2 # wait 2 hours before attempting to login again
+AXES_RESER_ON_SUCCESS = True # Reset failed login attempts
+AXES_LOCKOUT_TEMPLATE = 'account-locked.html'
+
+
+# protection against XXS attack
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+## protection against CSRF attack
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIES_SECURE = True
+
+## SSL redirect 
+
+#SECURE_SSL_REDIRECT = True
+
+## Enable HSTS
+
+SECURE_HSTS_SECONDS = 86400
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# look into a CSP (Content Security Policy)
+
+ 
