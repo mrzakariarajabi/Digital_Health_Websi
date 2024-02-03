@@ -43,13 +43,15 @@ function diabetes_Results(page_number)
     //console.log( DrugHistory);
 //PhysicalActivity
     var PhysicalActivity = document.getElementById("inputPationtPhysicalActivity").checked;
+    var physicalnot= !PhysicalActivity;
     //console.log( PhysicalActivity);
 //Glucose
     var Glucose = document.getElementById("inputPationtGlucose").checked;
     //console.log( Glucose);
 //inputPationtVegetables
     var Vegetables = document.getElementById("inputPationtVegetables").checked;
-    //console.log( Vegetables);
+    var Vegetablenot = !Vegetables
+    //console.log( !Vegetables);
 
     //Age
     if (Age_value < 45){
@@ -115,16 +117,16 @@ function diabetes_Results(page_number)
 // 
 risk = Age_risk+BMI_risk+Waist_risk;
 point = Age_point+ BMI_point+ Waist_point;
-Risk_total = -5.658 + risk+ 0.714*DrugHistory+ 2.263*Glucose+ 0.268*PhysicalActivity+ 0.165*Vegetables;
-point_total = point+ 2*DrugHistory + 5*Glucose + 2*PhysicalActivity+ 1*Vegetables;
+Risk_total = -5.658 + risk+ 0.714*DrugHistory+ 2.263*Glucose+ 0.268*physicalnot+ 0.165*Vegetablenot;
+point_total = point+ 2*DrugHistory + 5*Glucose + 2*physicalnot+ 1*Vegetablenot;
 final_Risk = Math.exp(Risk_total)/ (1+Math.exp(Risk_total));
-console.log( "final_Risk = " + final_Risk);
+//console.log( "final_Risk = " + final_Risk);
 if (page_number==1){
-  document.getElementById("discribe_text").innerHTML = "ریسک 5 ساله شما برابر است با " + (final_Risk*100).toFixed(2)+" درصد";
+  document.getElementById("discribe_text").innerHTML = "ریسک 10 ساله شما برابر است با " + (final_Risk*100).toFixed(2)+" درصد";
 
 }
 else{
-  document.getElementById("discribe_text").innerHTML = "your 5 year Risk equal by " + (final_Risk*100).toFixed(2)+" Percent.";
+  document.getElementById("discribe_text").innerHTML = "your 10 year Risk equal by " + (final_Risk*100).toFixed(2)+" Percent.";
 
 }
 /////////////////////////////////////////////
@@ -218,7 +220,7 @@ var year = document.getElementById('inputyear'),
         exp_women = func_women - 7.5766;
         f_women = Math.exp(exp_women);
         risk_women = 1-Math.pow(year_women[year_value-1], f_women);
-        console.log("women = "+risk_women*100);
+        //console.log("women = "+risk_women*100);
         if (page_number==1){
           document.getElementById("discribe_text").innerHTML = "ریسک " + year_value + " ساله شما برابر است با " + (risk_women*100).toFixed(2)+" درصد";
         }
@@ -271,8 +273,8 @@ function ckd_Results(page_number)
     var Anemia = document.getElementById("inputPatientAnemia").checked;
           //console.log( Anemia);   
     // Drug History
-    var DrugHistory = document.getElementById("inputPatientDrugHistory").checked;
-          //console.log( DrugHistory); 
+   // var DrugHistory = document.getElementById("inputPatientDrugHistory").checked;
+         // console.log( DrugHistory); 
     // Hypertension
     var Hypertension = document.getElementById("inputPatientHypertension").checked;
           //console.log( Hypertension); 
@@ -295,7 +297,7 @@ function ckd_Results(page_number)
   func_res=-5.4 +0*Age_cat1 +1.55*Age_cat2 + 2.31*Age_cat3 + 3.23*Age_cat4 + 0.29*Gender_value + 0.93*Anemia + 0.45*Hypertension + 0.44*PationtDM + 0.59*HistoryCVD + 0.45*HistoryCHF + 0.74*PationtPVD + 0.83*Proteinuria;
     exp_value=Math.exp(-func_res);
     Probability=1/(1+exp_value);
-    console.log( Probability*100);
+    //console.log( Probability*100);
     if (page_number==1){
       document.getElementById("discribe_text").innerHTML = "ریسک 5 ساله شما برابر است با  " + (Probability*100).toFixed(2)+" درصد";
     }
@@ -396,7 +398,7 @@ if (page_number==1){
 
     exp_value=Math.exp(func_res);
     Probability=1-Math.pow(0.96303975,exp_value);
-    console.log( Probability*100);
+    //console.log( Probability*100);
     if (page_number==1){
       document.getElementById("discribe_text").innerHTML = "ریسک 10 ساله شما برابر است با  " + (Probability*100).toFixed(2)+" درصد";
     }
