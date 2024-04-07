@@ -3,12 +3,14 @@
 
 This GitHub repository contains the code for a website that allows users to predict their risk of various diseases, including diabetes, chronic kidney disease (CKD), stroke, and cardiovascular diseases. Built for AI TEC company, the website aims to promote personal hygiene and provide recommendations for users based on their predicted risk.
 
+<img src="img.md/service-preview.png" />
 ## Live Demos:
 
 * https://eclinichub.com/ (potentially a deployed version of the website)
 
 * https://zakariarajabi.pythonanywhere.com/ (potentially a development or testing instance)
 
+<img src="img.md/preview.png" />
 ## Technical Stack:
 
 * Backend: Django (Python web framework)
