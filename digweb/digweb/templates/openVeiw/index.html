@@ -180,12 +180,38 @@
               </div>
             </div>
           </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
+                        Alzheimer Disease
+                      </h1>
+                      <p>
+                        Alzheimer's disease is a progressive brain disorder that impairs memory, thinking, and behavior. It is the leading cause of dementia, beginning with mild memory loss and advancing to severe cognitive decline. The disease results from a combination of genetic, lifestyle, and environmental factors, causing brain cells to degenerate and die. While there is no cure, treatments can help manage symptoms and improve quality of life.                      </p>
+                      <a href="{% url 'alzheimer_page'%}">
+                        Calculate my risk
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/alzheimer_start.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
       </div>
     </section>
@@ -559,10 +585,10 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'under_page'%}">
+            <a href="{% url 'alzheimer_page'%}">
               <img src="{% static 'images/s5.png' %}" alt="" />
               <br>
-              Therapy
+              Alzheimer
             </a>
           </div>
         </div>

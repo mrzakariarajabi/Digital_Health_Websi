@@ -64,3 +64,18 @@ class cvd_disease(models.Model):
 
     def __str__(self):
         return f"pationt with id number:{self.id_number}, age:{self.age}, gender:{self.gender},sbp_number:{self.sbp_number}, smoke:{self.smoke},diabetes:{self.diabetes},waist:{self.waist},hip:{self.hip}"
+    
+    #############   alzheimer disease database   #############
+class alzheimer_disease(models.Model):
+    id_number = models.IntegerField(validators=[MaxValueValidator(9999999999)])
+    height = models.IntegerField(validators=[MaxValueValidator(999)])
+    weight = models.IntegerField(validators=[MaxValueValidator(999)])
+    age = models.IntegerField(validators=[MaxValueValidator(999)])
+    SBP = models.IntegerField(validators=[MaxValueValidator(999)])
+    Education = models.IntegerField(validators=[MaxValueValidator(9)])
+    gender = models.BooleanField()
+    Cholesterol = models.BooleanField()
+    Activity  = models.BooleanField()
+
+    def __str__(self):
+        return f"patiant with id number :{self.id_number}, age:{self.age},height :{self.height}, SBP:{self.SBP}, weight:{self.weight},gender:{self.gender}, Education:{self.Education},Cholesterol:{self.Cholesterol} Activity:{self.Activity}"

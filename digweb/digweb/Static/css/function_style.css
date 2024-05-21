@@ -223,4 +223,15 @@
 
 /*end cvd section */
 
+/*alzheimer section*/
+
+.alzheimer_section {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(86, 188, 164, 0.55)), to(rgba(86, 188, 164, 0.55))), url(../images/alzheimer.jpg);
+  background-image: linear-gradient(to right, rgba(86, 188, 164, 0.55), rgba(86, 188, 164, 0.55)), url(../images/alzheimer.jpg);
+  background-size: cover;
+  color: #000000;
+}
+
+/*end alzheimer section */
+
 

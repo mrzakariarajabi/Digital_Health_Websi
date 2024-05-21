@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import diabetes_disease, cvd_disease, stroke_disease, ckd_disease
+from .models import diabetes_disease, cvd_disease, stroke_disease, ckd_disease, alzheimer_disease
 def mainpage(request):
     return render(request, "openVeiw/index.html")
     #return render(request, "hello/index.html")
@@ -68,6 +68,12 @@ def cvd_page(request):
 
 def cvdpr_page(request):
     return render(request, "persianPage/cvdpr.html")
+
+def alzheimer_page(request):
+    return render(request, "openVeiw/alzheimer.html")
+
+def alzheimerpr_page(request):
+    return render(request, "persianPage/alzheimerpr.html")
 
 def under_page(request):
     return render(request, "error/UnderConstruction.html")
@@ -153,5 +159,27 @@ def create_ckd(request):
         
         new_patient_ckd.save()
         return HttpResponse()
+    
+
+def create_alzheimer(request):
+    if request.method =='POST':
+        id_number = request.POST.get('inputidnumber',False)
+        age=request.POST.get('inputPatientAge',False)
+        weight=request.POST.get('inputPatientWeight', False)
+        height=request.POST.get('inputPatientHeight', False)
+        Education=request.POST.get('inputPatientEducation', False)
+        gender=request.POST.get('inputPatientGender', False)
+        SBP=request.POST.get('inputPatientSBP', False)
+        Cholesterol=request.POST.get('inputPatientCholesterol')
+        Activity=request.POST.get('inputPationtPhysicalActivity') 
+
+        new_patient_diabetes=alzheimer_disease(id_number=id_number,age=age,height=height,
+                                              weight=weight,Education=Education,gender=gender,
+                                              SBP=SBP,Cholesterol=Cholesterol,
+                                              Activity=Activity,)
+        
+        new_patient_diabetes.save()
+        return HttpResponse()
+    
 def error_404_handler(request, exception):
     return render(request, "error/page404.html")

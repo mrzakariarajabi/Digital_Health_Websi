@@ -58,6 +58,11 @@ urlpatterns = [
     path('stroke/pr/create/', views.create_stroke,name="createpr_stroke"),
     path('ckd/pr/create/', views.create_ckd,name="createpr_ckd"),
 
+    path('alzheimer/', views.alzheimer_page,name="alzheimer_page"),
+    path('alzheimer/create/', views.create_alzheimer,name="create_alzheimer"), 
+
+    path('alzheimer/pr/', views.alzheimerpr_page,name="alzheimerpr_page"),
+    path('alzheimer/pr/create/', views.create_alzheimer,name="create_alzheimer"),
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
     ##

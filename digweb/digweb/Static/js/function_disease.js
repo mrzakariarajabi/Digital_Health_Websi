@@ -408,3 +408,175 @@ if (page_number==1){
 }
 
 // end of CVD function
+
+
+// alzheimer function 
+function alzheimer_Results(page_number)
+{
+  //inputPatientAge
+  //inputPatientGender
+  //inputPatientWeight
+  //inputPatientHeight
+  //inputPatientEducation
+  //inputPatientSBP
+  //inputPatientCholesterol
+  //inputPationtPhysicalActivity
+
+
+
+// Age 
+    var Age = document.getElementById('inputPatientAge'),
+      Age_value = Age.value;
+    //console.log("Age" + Age_value);
+// gender
+    var Gender = document.getElementById('inputPatientGender'),
+      Gender_value = Gender.value;
+    //console.log("Gender" + Gender_value);
+// BMI
+    var Height = document.getElementById('inputPatientHeight'),
+      Height_value = Height.value;
+      var Weight = document.getElementById('inputPatientWeight'),
+      Weight_value = Weight.value;
+      BMI_value = Weight_value /(Math.pow((Height_value/100),2));
+
+    //var PatientBMI = document.getElementById('inputPatientBMI'),
+      //BMI_value = PatientBMI.value;
+    //console.log("BMI = " + BMI_value);
+//Education
+    var PatientEducation = document.getElementById('inputPatientEducation'),
+    Education_value = PatientEducation.value;
+    //console.log("Waist" + Waist_value);
+
+// Sistolic Blood Presure
+    var Sbp = document.getElementById('inputPatientSBP'),
+    SBP_value = Sbp.value;
+
+// Cholesterol
+    var Cholesterol = document.getElementById('inputPatientCholesterol'),
+    Cholesterol_value = Cholesterol.value;
+
+//PhysicalActivity
+    var PhysicalActivity = document.getElementById("inputPationtPhysicalActivity").checked;
+    var Activity= PhysicalActivity;
+    console.log( PhysicalActivity);
+
+
+//Age
+    if (Age_value < 47){
+          Age_score =0;
+        }
+    else if (Age_value >= 46 && Age_value < 54){
+            Age_score = 3;
+        }
+    else {
+            Age_score = 4;
+        }
+
+////////////////////////////////////////Education
+
+
+    if (Education_value == 1){
+      Education_score = 2;
+    }
+    else if (Education_value ==2){
+       Education_score= 3;
+    }
+    else {
+      Education_score =0;
+    }
+
+    //BMI
+    if (BMI_value >30 ){
+        BMI_score =2    
+        }
+
+    else{
+        BMI_score = 0
+        }
+    //SBP
+    if (SBP_value >=140 ){
+      SBP_score =2    
+      }
+
+  else{
+      SBP_score = 0
+      }
+    // CHL
+    if (Cholesterol_value ==1){
+      CHL_score =2    
+      }
+
+  else{
+      CHL_score = 0
+      } 
+    //Activity
+    if (Activity ){
+      Activity_score =0    
+      }
+
+  else{
+      Activity_score = 1
+      }     
+// #########################  //
+risk_score = (1*Age_score)+ (1*Gender_value)+ (1*Activity_score)+ (1*SBP_score) + (1*CHL_score)+ (1*Education_score)+ (1*BMI_score);
+console.log("risk score = ", risk_score);
+console.log( CHL_score);
+
+if (risk_score < 6){
+  if (page_number==1){
+    document.getElementById("discribe_text").innerHTML ="ریسک شما کمتر از میانگین احتمال ابتلا به بیماری آلزایمر است "
+
+  }
+  else{
+    document.getElementById("discribe_text").innerHTML ="it is below the average probability of developing Alzhiemer Disease"
+
+  }
+} 
+else if (risk_score < 8){
+  if (page_number==1){
+    document.getElementById("discribe_text").innerHTML ="ریسک شما کمتر از میانگین احتمال ابتلا به بیماری آلزایمر است "
+
+  }
+  else{
+    document.getElementById("discribe_text").innerHTML ="it is below the average probability of developing Alzhiemer Disease"
+
+  }
+}
+else if (risk_score < 10){
+  if (page_number==1){
+    document.getElementById("discribe_text").innerHTML ="ریسک شما نزدیک به میانگین احتمال ابتلا به بیماری آلزایمر است "
+
+  }
+  else{
+    document.getElementById("discribe_text").innerHTML ="it is close to the average probability of developing Alzhiemer Disease"
+
+  }
+}
+else if (risk_score < 12){
+  if (page_number==1){
+    document.getElementById("discribe_text").innerHTML ="ریسک شما بیشتر از میانگین احتمال ابتلا به بیماری آلزایمر است "
+
+  }
+  else{
+    document.getElementById("discribe_text").innerHTML ="it is above the average probability of developing Alzhiemer Disease"
+
+  }
+}
+else if (risk_score < 16){
+  if (page_number==1){
+    document.getElementById("discribe_text").innerHTML ="ریسک شما بیشتر از میانگین احتمال ابتلا به بیماری آلزایمر است "
+
+  }
+  else{
+    document.getElementById("discribe_text").innerHTML ="it is above the average probability of developing Alzhiemer Disease"
+
+  }
+}
+  
+
+
+/////////////////////////////////////////////
+
+
+}
+// end of diabetes function

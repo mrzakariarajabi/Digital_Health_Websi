@@ -179,12 +179,39 @@
               </div>
             </div>
           </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
+                        بیماری آلزایمر
+                      </h1>
+                      <p>
+                        بیماری آلزایمر یک اختلال مغزی پیشرونده است که حافظه، تفکر و رفتار را مختل می کند. این عامل اصلی زوال عقل است که با از دست دادن خفیف حافظه شروع می شود و تا زوال شناختی شدید پیش می رود. این بیماری در نتیجه ترکیبی از عوامل ژنتیکی، سبک زندگی و محیطی ایجاد می شود که باعث تحلیل رفتن و مرگ سلول های مغز می شود. در حالی که هیچ درمانی وجود ندارد، درمان ها می توانند به مدیریت علائم و بهبود کیفیت زندگی کمک کنند
+                      </p>
+                        <a href="{% url 'alzheimer_page'%}">
+                        محاسبه
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/alzheimer_start.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
       </div>
     </section>
@@ -558,10 +585,10 @@
         </div>
         <div class="col-md-4 mx-auto">
           <div class="box">
-            <a href="{% url 'under_page'%}">
+            <a href="{% url 'alzheimerpr_page'%}">
               <img src="{% static 'images/s5.png' %}" alt="" />
               <br>
-              درمان
+              آلزایمر
             </a>
           </div>
         </div>

@@ -1,0 +1,359 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <script>
+    var page_number=0;
+</script>
+  <style>
+    .section_discribe p {
+      font-family: sans-serif;
+      color: rgb(2, 2, 61);
+      font-size: 2.75em;
+      font-style: oblique;
+      float: center;
+      line-height: 3.5rem;
+      text-align: center;
+    }
+    
+    </style>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+  <title>AI TEC | alzheimer predictor</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/function_style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <!-- java script function for calculate risk  -->
+  <script src="{% static 'js/function_disease.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'main'%}">
+            <h3>
+              AI TEC
+            </h3>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'main'%}">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page'%}"> About </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'service_page'%}"> Services <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'alzheimerpr_page'%}"> persian language </a>
+              </li>
+            </ul>
+            <form class="form-inline ">
+              <button class="btn nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- alzheimer section -->
+
+  <section class="alzheimer_section disease_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form id="post-alzheimer" >{%csrf_token%}
+            <h4>
+              <span class="design_dot" ></span>
+              alzheimer disease Predictor
+            </h4>
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label for="inputPatientAge">Age </label>
+                <input type="number" class="form-control" id="inputPatientAge" name="inputPatientAge" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(120, parseInt(this.value)));">
+              </div>
+
+              <div class="form-group col-lg-4">
+                <label for="inputPatientGender">Gender</label>
+                <select name="inputPatientGender" class="form-control wide" id="inputPatientGender">
+                  <option value=0>Female</option>
+                  <option value=1>Male </option>
+                </select>
+              </div>
+
+              <div class="form-group col-lg-4">
+                <label for="inputPatientEducation">Education</label>
+                <select name="inputPatientEducation" class="form-control wide" id="inputPatientEducation">
+                  <option value=0>more than 10 years</option>
+                  <option value=1>between 7 to 9 years </option>
+                  <option value=2>less than 6 years </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-lg-4">
+                    <label for="inputPatientWeight">Weight (Kg) </label>
+                    <input type="number" name="inputPatientWeight" class="form-control" id="inputPatientWeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(250, parseInt(this.value)));">
+                  </div>
+
+              <div class="form-group col-lg-4">
+                <label for="inputPatientHeight">Height (cm)</label>
+                <input type="number" name="inputPatientHeight" class="form-control" id="inputPatientHeight" placeholder="" step="1" onchange="this.value = Math.max(40, Math.min(300, parseInt(this.value)));">
+              </div>
+              
+              <div class="form-group col-lg-4">
+                <label for="inputPatientSBP">Sistolic Blood Pressure (mm/hg) </label>
+                <input type="number" class="form-control" id="inputPatientSBP" name="inputPatientSBP" placeholder="" step="1" onchange="this.value = Math.max(80, Math.min(220, parseInt(this.value)));">
+              </div>
+            </div>
+
+            <div class="form-row ">
+                <div class="form-group col-lg-4">
+                    <label for="inputPatientCholesterol">Total Cholesterol (mmol/L)</label>
+                    <select name="inputPatientCholesterol" class="form-control wide" id="inputPatientCholesterol">
+                      <option value=0>less than 6.5</option>
+                      <option value=1>more than 6.5 </option>
+                    </select>
+                  </div>
+              <div class="form-group col-lg-4">
+                <br>
+                <input type="checkbox" id="inputPationtPhysicalActivity" name="inputPationtPhysicalActivity" value="1" class="control__indicator">
+                <label for="inputPationtPhysicalActivity">Do yo have physical activity for more than 10 minutes every day?</label>
+              </div>
+              
+              <div class="form-group col-lg-4">
+                <label for="inputidnumber">ID number (optional)</label>
+                <input type="number" class="form-control" id="inputidnumber" name="inputidnumber" placeholder="" step="1" onchange="this.value = Math.max(0, Math.min(9999999999, parseInt(this.value)));">
+              </div>
+            </div>
+
+            <div class="btn-box">
+              <button type="submit" class="btn" onclick="alzheimer_Results(page_number);">Calculate </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end alzheimer section -->
+<!--  discription section -->
+<section class="section_discribe">
+  <div class="discribe">
+    <br>
+    <br>
+    <p class ="text_result" id="discribe_text"> </p>
+  </div>
+
+  <div class="heading_container heading_center">
+    <h2>
+      <span class="design_dot"></span>
+      References and Sources:
+    </h2>
+    <a href="https://doi.org/10.3233/jad-190925" target="_blank">Rundek T, Gardener H, Dias Saporta AS, et al. Global Vascular Risk Score and CAIDE Dementia Risk Score Predict Cognitive Function in the Northern Manhattan Study. J Alzheimers Dis. 2020;73(3):1221-1231. doi:10.3233/JAD-190925</a>
+  </div>
+</section>
+<!-- end discription section -->
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          <span class="design_dot"></span>
+          Our other Services
+        </h2>
+        <p>
+          You can use other services, click on icon
+        </p>
+      </div>
+      <div class="row">
+
+       
+        
+        <div class="col-md-4 mx-auto">
+          <div class="box">
+            <a href="{% url 'cvd_page'%}">
+              <img src="{% static 'images/s1.png' %}" alt="" />
+              <br>
+              Cardiovascular disease
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mx-auto">
+          <div class="box">
+            <a href="{% url 'stroke_page'%}">
+              <img src="{% static 'images/s4.png' %}" alt="" />
+              <br>
+              Stroke
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mx-auto">
+          <div class="box">
+            <a href="{% url 'ckd_page'%}">
+              <img src="{% static 'images/s3.png' %}" alt="" />
+              <br>
+              Chronic Kidney Disease
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-box">
+        <a href="{% url 'service_page'%}">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+  <!-- info section -->
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_menu">
+            <h5>
+              QUICK LINKS
+            </h5>
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'main'%}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page'%}"> About </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service_page'%}"> Services </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'alzheimerpr_page'%}"> persian language </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_course">
+            <h5>
+              AI TEC
+            </h5>
+            <p>
+              Our goal at AI TEC is to push the boundaries of AI, developing innovative solutions that translate research into real-world impact across various domains.
+
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-5 offset-md-1">
+          <div class="info_news">
+            <h5>
+              FOR ANY QUERY, PLEASE WRITE TO US
+            </h5>
+            <div class="info_contact">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Location : Isfahan, Isfahan Province, Ostad Falaturi st, Pasargad Shopping mall 
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i> info@eclinichub.org
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i> Call : +31 34597406
+              </a>
+            </div>
+            <form action="">
+              <input type="text" placeholder="Enter Your email" />
+              <button>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="http://eclinichub.com/">AI TEC Company</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+</body>
+<script type="text/javascript">
+  $(document).on('submit','#post-alzheimer',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:'create/',
+      data:{
+        inputidnumber:$('#inputidnumber').val(),
+        inputPatientAge:$('#inputPatientAge').val(),
+        inputPatientGender:$('#inputPatientGender').val(),
+        inputPatientWeight:$('#inputPatientWeight').val(),
+        inputPatientHeight:$('inputPatientHeight').val(),
+        inputPatientEducation:$('#inputPatientEducation').val(),
+        inputPatientSBP:$('#inputPatientSBP').val(),
+        inputPatientCholesterol:$('#inputPatientCholesterol').val(),
+
+        inputPationtPhysicalActivity:($("#inputPationtPhysicalActivity:checked").prop("checked") == true ? 1 : 0),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+
+      },
+      success: function (){
+
+      }
+    });
+  });
+
+  
+</script>
+</html>
