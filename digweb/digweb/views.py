@@ -1,6 +1,12 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
 from .models import diabetes_disease, cvd_disease, stroke_disease, ckd_disease, alzheimer_disease
+import xgboost as xgb
+import pandas as pd
+import json
+import os
+
+
 def mainpage(request):
     return render(request, "openVeiw/index.html")
     #return render(request, "hello/index.html")
@@ -74,6 +80,7 @@ def alzheimer_page(request):
 
 def alzheimerpr_page(request):
     return render(request, "persianPage/alzheimerpr.html")
+
 
 def under_page(request):
     return render(request, "error/UnderConstruction.html")
@@ -181,5 +188,54 @@ def create_alzheimer(request):
         new_patient_diabetes.save()
         return HttpResponse()
     
+################# HIV part #################
+# Load the model
+# Print the current working directory
+print("Current Working Directory:", os.getcwd())
+
+# Construct the path to the model file
+model_path = os.path.join(os.getcwd(), 'digweb' ,'Static', 'model', 'model.json')
+
+# Check if the file exists
+if os.path.exists(model_path):
+    loaded_model = xgb.Booster()
+    loaded_model.load_model(model_path)
+    print("Model loaded successfully.")
+else:
+    print(f"Model file not found at {model_path}")
+
+feature_names = ['Gender', 'Prison record', 'Addiction record',
+                 'Martial status', 'Occupation', 'Drug injection', 
+                 'Sex inexchange for goods', 'Spouse of HIV person',
+                 'Receiving Blood', 'Spouse of high-risk person', 'Unsafe behaviours', 'Age category']
+
+def hiv_page(request):
+    if request.method == 'POST':
+        try:
+            body = json.loads(request.body)
+            print("Received data:", body)  # Print the received data
+
+            feature_names = [
+                'Gender', 'Prison record', 'Addiction record', 'Martial status', 
+                'Occupation', 'Drug injection', 'Sex inexchange for goods', 
+                'Spouse of HIV person', 'Receiving Blood', 'Spouse of high-risk person', 
+                'Unsafe behaviours', 'Age category'
+            ]
+            
+            df = pd.DataFrame([body], columns=feature_names)
+            #print("DataFrame:", df)  # Print the DataFrame
+
+            dtest = xgb.DMatrix(df)
+            predictions = loaded_model.predict(dtest)
+
+            return JsonResponse({'prediction': float(predictions[0])})
+        except Exception as e:
+            print(f"Error processing data: {e}")
+            return JsonResponse({'error': 'Invalid data'}, status=400)
+    else:
+        return render(request, 'openVeiw/hiv.html')
+
+#####################################################
+
 def error_404_handler(request, exception):
     return render(request, "error/page404.html")

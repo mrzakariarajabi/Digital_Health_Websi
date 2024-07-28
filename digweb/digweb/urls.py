@@ -63,8 +63,12 @@ urlpatterns = [
 
     path('alzheimer/pr/', views.alzheimerpr_page,name="alzheimerpr_page"),
     path('alzheimer/pr/create/', views.create_alzheimer,name="create_alzheimer"),
+    
+    path('hiv/', views.hiv_page,name="hiv_page"),
+
     path('underconstruction/', views.under_page, name="under_page")
     ##path('404/', views.page404_page, name="page404_page")
+    
     ##
     ##
 ]

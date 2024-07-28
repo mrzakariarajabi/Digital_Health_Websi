@@ -1,3 +1,4 @@
+//console.log('JavaScript file loaded');
 // diabetes function 
 function diabetes_Results(page_number)
 {
@@ -580,3 +581,72 @@ else if (risk_score < 16){
 
 }
 // end of diabetes function
+
+/////////////////////// hiv function ///////////////////////
+
+// HIV function 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+    hiv_Results();
+  });
+});
+
+// HIV function 
+function hiv_Results() {
+  var unssex= document.getElementById('inputPationtUnsafe').checked ? 1 : 0;
+  var hetro = document.getElementById('inputPationtHetero').checked ? 1 : 0;
+  var sameg = document.getElementById('inputPationtSameGender').checked ? 1 : 0;
+  const data = {
+    'Gender': parseInt(document.getElementById('inputPatientGender').value),
+    'Prison record': document.getElementById('inputPationtPrison').checked ? 1 : 0,
+    'Addiction record': document.getElementById('inputPationtAddiction').checked ? 1 : 0,
+    'Martial status': parseInt(document.getElementById('inputPatientMartial').value),
+    'Occupation': parseInt(document.getElementById('inputPatientOccupation').value),
+    'Drug injection': document.getElementById('inputPationtDrug').checked ? 1 : 0,
+    'Sex inexchange for goods': document.getElementById('inputPationtGoods').checked ? 1 : 0,
+    'Spouse of HIV person': document.getElementById('inputPationtSpouseHIV').checked ? 1 : 0,
+    'Receiving Blood': document.getElementById('inputPationtBlood').checked ? 1 : 0,
+    'Spouse of high-risk person': document.getElementById('inputPationtSpouseHR').checked ? 1 : 0,
+    'Age category': parseInt(document.getElementById('inputPatientAge').value),
+    'Unsafe behaviours': (unssex || hetro || sameg),
+  };
+
+  //console.log(unssex || hetro || sameg);
+
+  fetch('/hiv/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': getCookie('csrftoken')
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.prediction !== undefined) {
+      document.getElementById('discribe_text').innerText = `Prediction: ${result.prediction}`;
+    } else {
+      document.getElementById('discribe_text').innerText = 'Error: Enter your Age then click button';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    document.getElementById('discribe_text').innerText = 'An error occurred. Please try again.';
+  });
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
