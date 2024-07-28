@@ -625,7 +625,12 @@ function hiv_Results() {
   .then(response => response.json())
   .then(result => {
     if (result.prediction !== undefined) {
-      document.getElementById('discribe_text').innerText = `Prediction: ${result.prediction}`;
+      if (result.prediction ==0){
+        document.getElementById('discribe_text').innerText = 'With these characteristics, you don\'t have HIV.';
+      }else{
+        document.getElementById('discribe_text').innerText = 'With these characteristics, you have HIV.';
+      }
+      
     } else {
       document.getElementById('discribe_text').innerText = 'Error: Enter your Age then click button';
     }
