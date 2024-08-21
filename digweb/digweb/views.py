@@ -230,7 +230,7 @@ def hiv_page(request):
 
             return JsonResponse({'prediction': float(predictions[0])})
         except Exception as e:
-            print(f"Error processing data: {e}")
+            #print(f"Error processing data: {e}")
             return JsonResponse({'error': 'Invalid data'}, status=400)
     else:
         return render(request, 'openVeiw/hiv.html')
